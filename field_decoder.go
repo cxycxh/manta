@@ -10,11 +10,13 @@ type fieldFactory func(*field) fieldDecoder
 var fieldTypeFactories = map[string]fieldFactory{
 	"float32":                  floatFactory,
 	"CNetworkedQuantizedFloat": quantizedFactory,
-	"Vector":                   vectorFactory,
-	"uint64":                   unsignedFactory,
+	"Vector":                   vectorFactory(3),
+	"Vector2D":                 vectorFactory(2),
+	"Vector4D":                 vectorFactory(4),
+	"uint64":                   unsigned64Factory,
 	"QAngle":                   qangleFactory,
 	"CHandle":                  unsignedFactory,
-	"CStrongHandle":            unsignedFactory,
+	"CStrongHandle":            unsigned64Factory,
 	"CEntityHandle":            unsignedFactory,
 }
 
@@ -40,15 +42,18 @@ var fieldTypeDecoders = map[string]fieldDecoder{
 	"CUtlString":           stringDecoder,
 	"CUtlStringToken":      unsignedDecoder,
 	"CUtlSymbolLarge":      stringDecoder,
-	"Vector2D":             vector2Decoder,
 }
 
 func unsignedFactory(f *field) fieldDecoder {
-	if f.encoder == "fixed64" {
-		return fixedDecoder
-	}
-
 	return unsignedDecoder
+}
+
+func unsigned64Factory(f *field) fieldDecoder {
+	switch f.encoder {
+	case "fixed64":
+		return fixed64Decoder
+	}
+	return unsigned64Decoder
 }
 
 func floatFactory(f *field) fieldDecoder {
@@ -57,6 +62,8 @@ func floatFactory(f *field) fieldDecoder {
 		return floatCoordDecoder
 	case "simtime":
 		return simulationTimeDecoder
+	case "runetime":
+		return runeTimeDecoder
 	}
 
 	if f.bitCount == nil || (*f.bitCount <= 0 || *f.bitCount >= 32) {
@@ -73,20 +80,19 @@ func quantizedFactory(f *field) fieldDecoder {
 	}
 }
 
-func vectorFactory(f *field) fieldDecoder {
-	switch f.encoder {
-	case "normal":
-		return vectorNormalDecoder
-	case "coord":
-		return vectorCoordDecoder
-	}
+func vectorFactory(n int) fieldFactory {
+	return func(f *field) fieldDecoder {
+		if n == 3 && f.encoder == "normal" {
+			return vectorNormalDecoder
+		}
 
-	d := floatFactory(f)
-	return func(r *reader) interface{} {
-		return []float32{
-			d(r).(float32),
-			d(r).(float32),
-			d(r).(float32),
+		d := floatFactory(f)
+		return func(r *reader) interface{} {
+			x := make([]float32, n)
+			for i := 0; i < n; i++ {
+				x[i] = d(r).(float32)
+			}
+			return x
 		}
 	}
 }
@@ -95,15 +101,7 @@ func vectorNormalDecoder(r *reader) interface{} {
 	return r.read3BitNormal()
 }
 
-func vectorCoordDecoder(r *reader) interface{} {
-	return []float32{
-		r.readCoord(),
-		r.readCoord(),
-		r.readCoord(),
-	}
-}
-
-func fixedDecoder(r *reader) interface{} {
+func fixed64Decoder(r *reader) interface{} {
 	return r.readLeUint64()
 }
 
@@ -114,12 +112,15 @@ func handleDecoder(r *reader) interface{} {
 func booleanDecoder(r *reader) interface{} {
 	return r.readBoolean()
 }
+
 func stringDecoder(r *reader) interface{} {
 	return r.readString()
 }
+
 func defaultDecoder(r *reader) interface{} {
 	return r.readVarUint32()
 }
+
 func signedDecoder(r *reader) interface{} {
 	return r.readVarInt32()
 }
@@ -130,6 +131,10 @@ func floatCoordDecoder(r *reader) interface{} {
 
 func noscaleDecoder(r *reader) interface{} {
 	return math.Float32frombits(r.readBits(32))
+}
+
+func runeTimeDecoder(r *reader) interface{} {
+	return math.Float32frombits(r.readBits(4))
 }
 
 func simulationTimeDecoder(r *reader) interface{} {
@@ -182,6 +187,10 @@ func vector2Decoder(r *reader) interface{} {
 }
 
 func unsignedDecoder(r *reader) interface{} {
+	return uint64(r.readVarUint32())
+}
+
+func unsigned64Decoder(r *reader) interface{} {
 	return r.readVarUint64()
 }
 

@@ -3,14 +3,22 @@
 
 package dota
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
+
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type EGCEconBaseMsg int32
 
@@ -21,6 +29,7 @@ const (
 var EGCEconBaseMsg_name = map[int32]string{
 	2579: "k_EMsgGCGenericResult",
 }
+
 var EGCEconBaseMsg_value = map[string]int32{
 	"k_EMsgGCGenericResult": 2579,
 }
@@ -30,9 +39,11 @@ func (x EGCEconBaseMsg) Enum() *EGCEconBaseMsg {
 	*p = x
 	return p
 }
+
 func (x EGCEconBaseMsg) String() string {
 	return proto.EnumName(EGCEconBaseMsg_name, int32(x))
 }
+
 func (x *EGCEconBaseMsg) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(EGCEconBaseMsg_value, data, "EGCEconBaseMsg")
 	if err != nil {
@@ -41,7 +52,10 @@ func (x *EGCEconBaseMsg) UnmarshalJSON(data []byte) error {
 	*x = EGCEconBaseMsg(value)
 	return nil
 }
-func (EGCEconBaseMsg) EnumDescriptor() ([]byte, []int) { return fileDescriptor28, []int{0} }
+
+func (EGCEconBaseMsg) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_df63e448fc286698, []int{0}
+}
 
 type EGCMsgResponse int32
 
@@ -68,6 +82,7 @@ var EGCMsgResponse_name = map[int32]string{
 	7: "k_EGCMsgResponseNotLoggedOn",
 	8: "k_EGCMsgFailedToCreate",
 }
+
 var EGCMsgResponse_value = map[string]int32{
 	"k_EGCMsgResponseOK":           0,
 	"k_EGCMsgResponseDenied":       1,
@@ -85,9 +100,11 @@ func (x EGCMsgResponse) Enum() *EGCMsgResponse {
 	*p = x
 	return p
 }
+
 func (x EGCMsgResponse) String() string {
 	return proto.EnumName(EGCMsgResponse_name, int32(x))
 }
+
 func (x *EGCMsgResponse) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(EGCMsgResponse_value, data, "EGCMsgResponse")
 	if err != nil {
@@ -96,7 +113,10 @@ func (x *EGCMsgResponse) UnmarshalJSON(data []byte) error {
 	*x = EGCMsgResponse(value)
 	return nil
 }
-func (EGCMsgResponse) EnumDescriptor() ([]byte, []int) { return fileDescriptor28, []int{1} }
+
+func (EGCMsgResponse) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_df63e448fc286698, []int{1}
+}
 
 type EGCPartnerRequestResponse int32
 
@@ -113,6 +133,7 @@ var EGCPartnerRequestResponse_name = map[int32]string{
 	3: "k_EPartnerRequestNotLinked",
 	4: "k_EPartnerRequestUnsupportedPartnerType",
 }
+
 var EGCPartnerRequestResponse_value = map[string]int32{
 	"k_EPartnerRequestOK":                     1,
 	"k_EPartnerRequestBadAccount":             2,
@@ -125,9 +146,11 @@ func (x EGCPartnerRequestResponse) Enum() *EGCPartnerRequestResponse {
 	*p = x
 	return p
 }
+
 func (x EGCPartnerRequestResponse) String() string {
 	return proto.EnumName(EGCPartnerRequestResponse_name, int32(x))
 }
+
 func (x *EGCPartnerRequestResponse) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(EGCPartnerRequestResponse_value, data, "EGCPartnerRequestResponse")
 	if err != nil {
@@ -136,7 +159,10 @@ func (x *EGCPartnerRequestResponse) UnmarshalJSON(data []byte) error {
 	*x = EGCPartnerRequestResponse(value)
 	return nil
 }
-func (EGCPartnerRequestResponse) EnumDescriptor() ([]byte, []int) { return fileDescriptor28, []int{2} }
+
+func (EGCPartnerRequestResponse) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_df63e448fc286698, []int{2}
+}
 
 type EGCMsgUseItemResponse int32
 
@@ -173,6 +199,7 @@ var EGCMsgUseItemResponse_name = map[int32]string{
 	12: "k_EGCMsgUseItemResponse_EmoticonUnlock_Complete",
 	13: "k_EGCMsgUseItemResponse_ItemUsed_Compendium",
 }
+
 var EGCMsgUseItemResponse_value = map[string]int32{
 	"k_EGCMsgUseItemResponse_ItemUsed":                    0,
 	"k_EGCMsgUseItemResponse_GiftNoOtherPlayers":          1,
@@ -195,9 +222,11 @@ func (x EGCMsgUseItemResponse) Enum() *EGCMsgUseItemResponse {
 	*p = x
 	return p
 }
+
 func (x EGCMsgUseItemResponse) String() string {
 	return proto.EnumName(EGCMsgUseItemResponse_name, int32(x))
 }
+
 func (x *EGCMsgUseItemResponse) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(EGCMsgUseItemResponse_value, data, "EGCMsgUseItemResponse")
 	if err != nil {
@@ -206,18 +235,43 @@ func (x *EGCMsgUseItemResponse) UnmarshalJSON(data []byte) error {
 	*x = EGCMsgUseItemResponse(value)
 	return nil
 }
-func (EGCMsgUseItemResponse) EnumDescriptor() ([]byte, []int) { return fileDescriptor28, []int{3} }
 
-type CMsgGenericResult struct {
-	Eresult          *uint32 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	DebugMessage     *string `protobuf:"bytes,2,opt,name=debug_message,json=debugMessage" json:"debug_message,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+func (EGCMsgUseItemResponse) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_df63e448fc286698, []int{3}
 }
 
-func (m *CMsgGenericResult) Reset()                    { *m = CMsgGenericResult{} }
-func (m *CMsgGenericResult) String() string            { return proto.CompactTextString(m) }
-func (*CMsgGenericResult) ProtoMessage()               {}
-func (*CMsgGenericResult) Descriptor() ([]byte, []int) { return fileDescriptor28, []int{0} }
+type CMsgGenericResult struct {
+	Eresult              *uint32  `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
+	DebugMessage         *string  `protobuf:"bytes,2,opt,name=debug_message,json=debugMessage" json:"debug_message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CMsgGenericResult) Reset()         { *m = CMsgGenericResult{} }
+func (m *CMsgGenericResult) String() string { return proto.CompactTextString(m) }
+func (*CMsgGenericResult) ProtoMessage()    {}
+func (*CMsgGenericResult) Descriptor() ([]byte, []int) {
+	return fileDescriptor_df63e448fc286698, []int{0}
+}
+
+func (m *CMsgGenericResult) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgGenericResult.Unmarshal(m, b)
+}
+func (m *CMsgGenericResult) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgGenericResult.Marshal(b, m, deterministic)
+}
+func (m *CMsgGenericResult) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgGenericResult.Merge(m, src)
+}
+func (m *CMsgGenericResult) XXX_Size() int {
+	return xxx_messageInfo_CMsgGenericResult.Size(m)
+}
+func (m *CMsgGenericResult) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgGenericResult.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgGenericResult proto.InternalMessageInfo
 
 const Default_CMsgGenericResult_Eresult uint32 = 2
 
@@ -236,16 +290,16 @@ func (m *CMsgGenericResult) GetDebugMessage() string {
 }
 
 func init() {
-	proto.RegisterType((*CMsgGenericResult)(nil), "dota.CMsgGenericResult")
 	proto.RegisterEnum("dota.EGCEconBaseMsg", EGCEconBaseMsg_name, EGCEconBaseMsg_value)
 	proto.RegisterEnum("dota.EGCMsgResponse", EGCMsgResponse_name, EGCMsgResponse_value)
 	proto.RegisterEnum("dota.EGCPartnerRequestResponse", EGCPartnerRequestResponse_name, EGCPartnerRequestResponse_value)
 	proto.RegisterEnum("dota.EGCMsgUseItemResponse", EGCMsgUseItemResponse_name, EGCMsgUseItemResponse_value)
+	proto.RegisterType((*CMsgGenericResult)(nil), "dota.CMsgGenericResult")
 }
 
-func init() { proto.RegisterFile("econ_shared_enums.proto", fileDescriptor28) }
+func init() { proto.RegisterFile("econ_shared_enums.proto", fileDescriptor_df63e448fc286698) }
 
-var fileDescriptor28 = []byte{
+var fileDescriptor_df63e448fc286698 = []byte{
 	// 619 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x52, 0x5d, 0x4f, 0x13, 0x4d,
 	0x14, 0x66, 0x4b, 0xcb, 0xc7, 0xbc, 0xf0, 0x66, 0x1c, 0xe5, 0x43, 0x30, 0xda, 0x88, 0x11, 0x52,

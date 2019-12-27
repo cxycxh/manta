@@ -3,14 +3,22 @@
 
 package dota
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
+
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type CMsgGCToClientPrivateChatResponse_Result int32
 
@@ -49,6 +57,7 @@ var CMsgGCToClientPrivateChatResponse_Result_name = map[int32]string{
 	14: "FAILURE_CANNOT_KICK_ADMIN",
 	15: "FAILURE_ALREADY_ADMIN",
 }
+
 var CMsgGCToClientPrivateChatResponse_Result_value = map[string]int32{
 	"SUCCESS":                       0,
 	"FAILURE_CREATION_LOCK":         1,
@@ -72,9 +81,11 @@ func (x CMsgGCToClientPrivateChatResponse_Result) Enum() *CMsgGCToClientPrivateC
 	*p = x
 	return p
 }
+
 func (x CMsgGCToClientPrivateChatResponse_Result) String() string {
 	return proto.EnumName(CMsgGCToClientPrivateChatResponse_Result_name, int32(x))
 }
+
 func (x *CMsgGCToClientPrivateChatResponse_Result) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(CMsgGCToClientPrivateChatResponse_Result_value, data, "CMsgGCToClientPrivateChatResponse_Result")
 	if err != nil {
@@ -83,8 +94,9 @@ func (x *CMsgGCToClientPrivateChatResponse_Result) UnmarshalJSON(data []byte) er
 	*x = CMsgGCToClientPrivateChatResponse_Result(value)
 	return nil
 }
+
 func (CMsgGCToClientPrivateChatResponse_Result) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{4, 0}
+	return fileDescriptor_56aef27c555bd81b, []int{4, 0}
 }
 
 type CMsgDOTAJoinChatChannelResponse_Result int32
@@ -124,6 +136,7 @@ var CMsgDOTAJoinChatChannelResponse_Result_name = map[int32]string{
 	13: "PRIVATE_CHAT_KICKED",
 	14: "USER_NOT_ALLOWED",
 }
+
 var CMsgDOTAJoinChatChannelResponse_Result_value = map[string]int32{
 	"JOIN_SUCCESS":                    0,
 	"INVALID_CHANNEL_TYPE":            1,
@@ -147,9 +160,11 @@ func (x CMsgDOTAJoinChatChannelResponse_Result) Enum() *CMsgDOTAJoinChatChannelR
 	*p = x
 	return p
 }
+
 func (x CMsgDOTAJoinChatChannelResponse_Result) String() string {
 	return proto.EnumName(CMsgDOTAJoinChatChannelResponse_Result_name, int32(x))
 }
+
 func (x *CMsgDOTAJoinChatChannelResponse_Result) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(CMsgDOTAJoinChatChannelResponse_Result_value, data, "CMsgDOTAJoinChatChannelResponse_Result")
 	if err != nil {
@@ -158,22 +173,43 @@ func (x *CMsgDOTAJoinChatChannelResponse_Result) UnmarshalJSON(data []byte) erro
 	*x = CMsgDOTAJoinChatChannelResponse_Result(value)
 	return nil
 }
+
 func (CMsgDOTAJoinChatChannelResponse_Result) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{13, 0}
+	return fileDescriptor_56aef27c555bd81b, []int{13, 0}
 }
 
 type CMsgClientToGCPrivateChatInvite struct {
-	PrivateChatChannelName *string `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
-	InvitedAccountId       *uint32 `protobuf:"varint,2,opt,name=invited_account_id,json=invitedAccountId" json:"invited_account_id,omitempty"`
-	XXX_unrecognized       []byte  `json:"-"`
+	PrivateChatChannelName *string  `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
+	InvitedAccountId       *uint32  `protobuf:"varint,2,opt,name=invited_account_id,json=invitedAccountId" json:"invited_account_id,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
+	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *CMsgClientToGCPrivateChatInvite) Reset()         { *m = CMsgClientToGCPrivateChatInvite{} }
 func (m *CMsgClientToGCPrivateChatInvite) String() string { return proto.CompactTextString(m) }
 func (*CMsgClientToGCPrivateChatInvite) ProtoMessage()    {}
 func (*CMsgClientToGCPrivateChatInvite) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{0}
+	return fileDescriptor_56aef27c555bd81b, []int{0}
 }
+
+func (m *CMsgClientToGCPrivateChatInvite) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatInvite.Unmarshal(m, b)
+}
+func (m *CMsgClientToGCPrivateChatInvite) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatInvite.Marshal(b, m, deterministic)
+}
+func (m *CMsgClientToGCPrivateChatInvite) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgClientToGCPrivateChatInvite.Merge(m, src)
+}
+func (m *CMsgClientToGCPrivateChatInvite) XXX_Size() int {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatInvite.Size(m)
+}
+func (m *CMsgClientToGCPrivateChatInvite) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgClientToGCPrivateChatInvite.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgClientToGCPrivateChatInvite proto.InternalMessageInfo
 
 func (m *CMsgClientToGCPrivateChatInvite) GetPrivateChatChannelName() string {
 	if m != nil && m.PrivateChatChannelName != nil {
@@ -190,15 +226,37 @@ func (m *CMsgClientToGCPrivateChatInvite) GetInvitedAccountId() uint32 {
 }
 
 type CMsgClientToGCPrivateChatKick struct {
-	PrivateChatChannelName *string `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
-	KickAccountId          *uint32 `protobuf:"varint,2,opt,name=kick_account_id,json=kickAccountId" json:"kick_account_id,omitempty"`
-	XXX_unrecognized       []byte  `json:"-"`
+	PrivateChatChannelName *string  `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
+	KickAccountId          *uint32  `protobuf:"varint,2,opt,name=kick_account_id,json=kickAccountId" json:"kick_account_id,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
+	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
-func (m *CMsgClientToGCPrivateChatKick) Reset()                    { *m = CMsgClientToGCPrivateChatKick{} }
-func (m *CMsgClientToGCPrivateChatKick) String() string            { return proto.CompactTextString(m) }
-func (*CMsgClientToGCPrivateChatKick) ProtoMessage()               {}
-func (*CMsgClientToGCPrivateChatKick) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{1} }
+func (m *CMsgClientToGCPrivateChatKick) Reset()         { *m = CMsgClientToGCPrivateChatKick{} }
+func (m *CMsgClientToGCPrivateChatKick) String() string { return proto.CompactTextString(m) }
+func (*CMsgClientToGCPrivateChatKick) ProtoMessage()    {}
+func (*CMsgClientToGCPrivateChatKick) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{1}
+}
+
+func (m *CMsgClientToGCPrivateChatKick) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatKick.Unmarshal(m, b)
+}
+func (m *CMsgClientToGCPrivateChatKick) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatKick.Marshal(b, m, deterministic)
+}
+func (m *CMsgClientToGCPrivateChatKick) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgClientToGCPrivateChatKick.Merge(m, src)
+}
+func (m *CMsgClientToGCPrivateChatKick) XXX_Size() int {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatKick.Size(m)
+}
+func (m *CMsgClientToGCPrivateChatKick) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgClientToGCPrivateChatKick.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgClientToGCPrivateChatKick proto.InternalMessageInfo
 
 func (m *CMsgClientToGCPrivateChatKick) GetPrivateChatChannelName() string {
 	if m != nil && m.PrivateChatChannelName != nil {
@@ -215,17 +273,37 @@ func (m *CMsgClientToGCPrivateChatKick) GetKickAccountId() uint32 {
 }
 
 type CMsgClientToGCPrivateChatPromote struct {
-	PrivateChatChannelName *string `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
-	PromoteAccountId       *uint32 `protobuf:"varint,2,opt,name=promote_account_id,json=promoteAccountId" json:"promote_account_id,omitempty"`
-	XXX_unrecognized       []byte  `json:"-"`
+	PrivateChatChannelName *string  `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
+	PromoteAccountId       *uint32  `protobuf:"varint,2,opt,name=promote_account_id,json=promoteAccountId" json:"promote_account_id,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
+	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *CMsgClientToGCPrivateChatPromote) Reset()         { *m = CMsgClientToGCPrivateChatPromote{} }
 func (m *CMsgClientToGCPrivateChatPromote) String() string { return proto.CompactTextString(m) }
 func (*CMsgClientToGCPrivateChatPromote) ProtoMessage()    {}
 func (*CMsgClientToGCPrivateChatPromote) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{2}
+	return fileDescriptor_56aef27c555bd81b, []int{2}
 }
+
+func (m *CMsgClientToGCPrivateChatPromote) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatPromote.Unmarshal(m, b)
+}
+func (m *CMsgClientToGCPrivateChatPromote) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatPromote.Marshal(b, m, deterministic)
+}
+func (m *CMsgClientToGCPrivateChatPromote) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgClientToGCPrivateChatPromote.Merge(m, src)
+}
+func (m *CMsgClientToGCPrivateChatPromote) XXX_Size() int {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatPromote.Size(m)
+}
+func (m *CMsgClientToGCPrivateChatPromote) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgClientToGCPrivateChatPromote.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgClientToGCPrivateChatPromote proto.InternalMessageInfo
 
 func (m *CMsgClientToGCPrivateChatPromote) GetPrivateChatChannelName() string {
 	if m != nil && m.PrivateChatChannelName != nil {
@@ -242,17 +320,37 @@ func (m *CMsgClientToGCPrivateChatPromote) GetPromoteAccountId() uint32 {
 }
 
 type CMsgClientToGCPrivateChatDemote struct {
-	PrivateChatChannelName *string `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
-	DemoteAccountId        *uint32 `protobuf:"varint,2,opt,name=demote_account_id,json=demoteAccountId" json:"demote_account_id,omitempty"`
-	XXX_unrecognized       []byte  `json:"-"`
+	PrivateChatChannelName *string  `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
+	DemoteAccountId        *uint32  `protobuf:"varint,2,opt,name=demote_account_id,json=demoteAccountId" json:"demote_account_id,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
+	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *CMsgClientToGCPrivateChatDemote) Reset()         { *m = CMsgClientToGCPrivateChatDemote{} }
 func (m *CMsgClientToGCPrivateChatDemote) String() string { return proto.CompactTextString(m) }
 func (*CMsgClientToGCPrivateChatDemote) ProtoMessage()    {}
 func (*CMsgClientToGCPrivateChatDemote) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{3}
+	return fileDescriptor_56aef27c555bd81b, []int{3}
 }
+
+func (m *CMsgClientToGCPrivateChatDemote) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatDemote.Unmarshal(m, b)
+}
+func (m *CMsgClientToGCPrivateChatDemote) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatDemote.Marshal(b, m, deterministic)
+}
+func (m *CMsgClientToGCPrivateChatDemote) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgClientToGCPrivateChatDemote.Merge(m, src)
+}
+func (m *CMsgClientToGCPrivateChatDemote) XXX_Size() int {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatDemote.Size(m)
+}
+func (m *CMsgClientToGCPrivateChatDemote) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgClientToGCPrivateChatDemote.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgClientToGCPrivateChatDemote proto.InternalMessageInfo
 
 func (m *CMsgClientToGCPrivateChatDemote) GetPrivateChatChannelName() string {
 	if m != nil && m.PrivateChatChannelName != nil {
@@ -272,15 +370,35 @@ type CMsgGCToClientPrivateChatResponse struct {
 	PrivateChatChannelName *string                                   `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
 	Result                 *CMsgGCToClientPrivateChatResponse_Result `protobuf:"varint,2,opt,name=result,enum=dota.CMsgGCToClientPrivateChatResponse_Result,def=0" json:"result,omitempty"`
 	Username               *string                                   `protobuf:"bytes,3,opt,name=username" json:"username,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{}                                  `json:"-"`
 	XXX_unrecognized       []byte                                    `json:"-"`
+	XXX_sizecache          int32                                     `json:"-"`
 }
 
 func (m *CMsgGCToClientPrivateChatResponse) Reset()         { *m = CMsgGCToClientPrivateChatResponse{} }
 func (m *CMsgGCToClientPrivateChatResponse) String() string { return proto.CompactTextString(m) }
 func (*CMsgGCToClientPrivateChatResponse) ProtoMessage()    {}
 func (*CMsgGCToClientPrivateChatResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{4}
+	return fileDescriptor_56aef27c555bd81b, []int{4}
 }
+
+func (m *CMsgGCToClientPrivateChatResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgGCToClientPrivateChatResponse.Unmarshal(m, b)
+}
+func (m *CMsgGCToClientPrivateChatResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgGCToClientPrivateChatResponse.Marshal(b, m, deterministic)
+}
+func (m *CMsgGCToClientPrivateChatResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgGCToClientPrivateChatResponse.Merge(m, src)
+}
+func (m *CMsgGCToClientPrivateChatResponse) XXX_Size() int {
+	return xxx_messageInfo_CMsgGCToClientPrivateChatResponse.Size(m)
+}
+func (m *CMsgGCToClientPrivateChatResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgGCToClientPrivateChatResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgGCToClientPrivateChatResponse proto.InternalMessageInfo
 
 const Default_CMsgGCToClientPrivateChatResponse_Result CMsgGCToClientPrivateChatResponse_Result = CMsgGCToClientPrivateChatResponse_SUCCESS
 
@@ -306,16 +424,36 @@ func (m *CMsgGCToClientPrivateChatResponse) GetUsername() string {
 }
 
 type CMsgClientToGCPrivateChatInfoRequest struct {
-	PrivateChatChannelName *string `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
-	XXX_unrecognized       []byte  `json:"-"`
+	PrivateChatChannelName *string  `protobuf:"bytes,1,opt,name=private_chat_channel_name,json=privateChatChannelName" json:"private_chat_channel_name,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
+	XXX_unrecognized       []byte   `json:"-"`
+	XXX_sizecache          int32    `json:"-"`
 }
 
 func (m *CMsgClientToGCPrivateChatInfoRequest) Reset()         { *m = CMsgClientToGCPrivateChatInfoRequest{} }
 func (m *CMsgClientToGCPrivateChatInfoRequest) String() string { return proto.CompactTextString(m) }
 func (*CMsgClientToGCPrivateChatInfoRequest) ProtoMessage()    {}
 func (*CMsgClientToGCPrivateChatInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{5}
+	return fileDescriptor_56aef27c555bd81b, []int{5}
 }
+
+func (m *CMsgClientToGCPrivateChatInfoRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatInfoRequest.Unmarshal(m, b)
+}
+func (m *CMsgClientToGCPrivateChatInfoRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatInfoRequest.Marshal(b, m, deterministic)
+}
+func (m *CMsgClientToGCPrivateChatInfoRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgClientToGCPrivateChatInfoRequest.Merge(m, src)
+}
+func (m *CMsgClientToGCPrivateChatInfoRequest) XXX_Size() int {
+	return xxx_messageInfo_CMsgClientToGCPrivateChatInfoRequest.Size(m)
+}
+func (m *CMsgClientToGCPrivateChatInfoRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgClientToGCPrivateChatInfoRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgClientToGCPrivateChatInfoRequest proto.InternalMessageInfo
 
 func (m *CMsgClientToGCPrivateChatInfoRequest) GetPrivateChatChannelName() string {
 	if m != nil && m.PrivateChatChannelName != nil {
@@ -329,15 +467,35 @@ type CMsgGCToClientPrivateChatInfoResponse struct {
 	Members                []*CMsgGCToClientPrivateChatInfoResponse_Member `protobuf:"bytes,2,rep,name=members" json:"members,omitempty"`
 	Creator                *uint32                                         `protobuf:"varint,3,opt,name=creator" json:"creator,omitempty"`
 	CreationDate           *uint32                                         `protobuf:"varint,4,opt,name=creation_date,json=creationDate" json:"creation_date,omitempty"`
+	XXX_NoUnkeyedLiteral   struct{}                                        `json:"-"`
 	XXX_unrecognized       []byte                                          `json:"-"`
+	XXX_sizecache          int32                                           `json:"-"`
 }
 
 func (m *CMsgGCToClientPrivateChatInfoResponse) Reset()         { *m = CMsgGCToClientPrivateChatInfoResponse{} }
 func (m *CMsgGCToClientPrivateChatInfoResponse) String() string { return proto.CompactTextString(m) }
 func (*CMsgGCToClientPrivateChatInfoResponse) ProtoMessage()    {}
 func (*CMsgGCToClientPrivateChatInfoResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{6}
+	return fileDescriptor_56aef27c555bd81b, []int{6}
 }
+
+func (m *CMsgGCToClientPrivateChatInfoResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse.Unmarshal(m, b)
+}
+func (m *CMsgGCToClientPrivateChatInfoResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse.Marshal(b, m, deterministic)
+}
+func (m *CMsgGCToClientPrivateChatInfoResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse.Merge(m, src)
+}
+func (m *CMsgGCToClientPrivateChatInfoResponse) XXX_Size() int {
+	return xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse.Size(m)
+}
+func (m *CMsgGCToClientPrivateChatInfoResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse proto.InternalMessageInfo
 
 func (m *CMsgGCToClientPrivateChatInfoResponse) GetPrivateChatChannelName() string {
 	if m != nil && m.PrivateChatChannelName != nil {
@@ -368,10 +526,12 @@ func (m *CMsgGCToClientPrivateChatInfoResponse) GetCreationDate() uint32 {
 }
 
 type CMsgGCToClientPrivateChatInfoResponse_Member struct {
-	AccountId        *uint32 `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
-	Name             *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Status           *uint32 `protobuf:"varint,3,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	AccountId            *uint32  `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	Name                 *string  `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Status               *uint32  `protobuf:"varint,3,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CMsgGCToClientPrivateChatInfoResponse_Member) Reset() {
@@ -382,8 +542,26 @@ func (m *CMsgGCToClientPrivateChatInfoResponse_Member) String() string {
 }
 func (*CMsgGCToClientPrivateChatInfoResponse_Member) ProtoMessage() {}
 func (*CMsgGCToClientPrivateChatInfoResponse_Member) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{6, 0}
+	return fileDescriptor_56aef27c555bd81b, []int{6, 0}
 }
+
+func (m *CMsgGCToClientPrivateChatInfoResponse_Member) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse_Member.Unmarshal(m, b)
+}
+func (m *CMsgGCToClientPrivateChatInfoResponse_Member) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse_Member.Marshal(b, m, deterministic)
+}
+func (m *CMsgGCToClientPrivateChatInfoResponse_Member) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse_Member.Merge(m, src)
+}
+func (m *CMsgGCToClientPrivateChatInfoResponse_Member) XXX_Size() int {
+	return xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse_Member.Size(m)
+}
+func (m *CMsgGCToClientPrivateChatInfoResponse_Member) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse_Member.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgGCToClientPrivateChatInfoResponse_Member proto.InternalMessageInfo
 
 func (m *CMsgGCToClientPrivateChatInfoResponse_Member) GetAccountId() uint32 {
 	if m != nil && m.AccountId != nil {
@@ -407,15 +585,37 @@ func (m *CMsgGCToClientPrivateChatInfoResponse_Member) GetStatus() uint32 {
 }
 
 type CMsgDOTAJoinChatChannel struct {
-	ChannelName      *string               `protobuf:"bytes,2,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
-	ChannelType      *DOTAChatChannelTypeT `protobuf:"varint,4,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
-	XXX_unrecognized []byte                `json:"-"`
+	ChannelName          *string               `protobuf:"bytes,2,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
+	ChannelType          *DOTAChatChannelTypeT `protobuf:"varint,4,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
-func (m *CMsgDOTAJoinChatChannel) Reset()                    { *m = CMsgDOTAJoinChatChannel{} }
-func (m *CMsgDOTAJoinChatChannel) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTAJoinChatChannel) ProtoMessage()               {}
-func (*CMsgDOTAJoinChatChannel) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{7} }
+func (m *CMsgDOTAJoinChatChannel) Reset()         { *m = CMsgDOTAJoinChatChannel{} }
+func (m *CMsgDOTAJoinChatChannel) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTAJoinChatChannel) ProtoMessage()    {}
+func (*CMsgDOTAJoinChatChannel) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{7}
+}
+
+func (m *CMsgDOTAJoinChatChannel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAJoinChatChannel.Unmarshal(m, b)
+}
+func (m *CMsgDOTAJoinChatChannel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAJoinChatChannel.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAJoinChatChannel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAJoinChatChannel.Merge(m, src)
+}
+func (m *CMsgDOTAJoinChatChannel) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAJoinChatChannel.Size(m)
+}
+func (m *CMsgDOTAJoinChatChannel) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAJoinChatChannel.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAJoinChatChannel proto.InternalMessageInfo
 
 const Default_CMsgDOTAJoinChatChannel_ChannelType DOTAChatChannelTypeT = DOTAChatChannelTypeT_DOTAChannelType_Regional
 
@@ -434,14 +634,36 @@ func (m *CMsgDOTAJoinChatChannel) GetChannelType() DOTAChatChannelTypeT {
 }
 
 type CMsgDOTALeaveChatChannel struct {
-	ChannelId        *uint64 `protobuf:"varint,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ChannelId            *uint64  `protobuf:"varint,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CMsgDOTALeaveChatChannel) Reset()                    { *m = CMsgDOTALeaveChatChannel{} }
-func (m *CMsgDOTALeaveChatChannel) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTALeaveChatChannel) ProtoMessage()               {}
-func (*CMsgDOTALeaveChatChannel) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{8} }
+func (m *CMsgDOTALeaveChatChannel) Reset()         { *m = CMsgDOTALeaveChatChannel{} }
+func (m *CMsgDOTALeaveChatChannel) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTALeaveChatChannel) ProtoMessage()    {}
+func (*CMsgDOTALeaveChatChannel) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{8}
+}
+
+func (m *CMsgDOTALeaveChatChannel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTALeaveChatChannel.Unmarshal(m, b)
+}
+func (m *CMsgDOTALeaveChatChannel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTALeaveChatChannel.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTALeaveChatChannel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTALeaveChatChannel.Merge(m, src)
+}
+func (m *CMsgDOTALeaveChatChannel) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTALeaveChatChannel.Size(m)
+}
+func (m *CMsgDOTALeaveChatChannel) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTALeaveChatChannel.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTALeaveChatChannel proto.InternalMessageInfo
 
 func (m *CMsgDOTALeaveChatChannel) GetChannelId() uint64 {
 	if m != nil && m.ChannelId != nil {
@@ -451,15 +673,37 @@ func (m *CMsgDOTALeaveChatChannel) GetChannelId() uint64 {
 }
 
 type CMsgGCChatReportPublicSpam struct {
-	ChannelId        *uint64 `protobuf:"varint,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
-	ChannelUserId    *uint32 `protobuf:"varint,2,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ChannelId            *uint64  `protobuf:"varint,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
+	ChannelUserId        *uint32  `protobuf:"varint,2,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CMsgGCChatReportPublicSpam) Reset()                    { *m = CMsgGCChatReportPublicSpam{} }
-func (m *CMsgGCChatReportPublicSpam) String() string            { return proto.CompactTextString(m) }
-func (*CMsgGCChatReportPublicSpam) ProtoMessage()               {}
-func (*CMsgGCChatReportPublicSpam) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{9} }
+func (m *CMsgGCChatReportPublicSpam) Reset()         { *m = CMsgGCChatReportPublicSpam{} }
+func (m *CMsgGCChatReportPublicSpam) String() string { return proto.CompactTextString(m) }
+func (*CMsgGCChatReportPublicSpam) ProtoMessage()    {}
+func (*CMsgGCChatReportPublicSpam) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{9}
+}
+
+func (m *CMsgGCChatReportPublicSpam) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgGCChatReportPublicSpam.Unmarshal(m, b)
+}
+func (m *CMsgGCChatReportPublicSpam) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgGCChatReportPublicSpam.Marshal(b, m, deterministic)
+}
+func (m *CMsgGCChatReportPublicSpam) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgGCChatReportPublicSpam.Merge(m, src)
+}
+func (m *CMsgGCChatReportPublicSpam) XXX_Size() int {
+	return xxx_messageInfo_CMsgGCChatReportPublicSpam.Size(m)
+}
+func (m *CMsgGCChatReportPublicSpam) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgGCChatReportPublicSpam.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgGCChatReportPublicSpam proto.InternalMessageInfo
 
 func (m *CMsgGCChatReportPublicSpam) GetChannelId() uint64 {
 	if m != nil && m.ChannelId != nil {
@@ -476,14 +720,36 @@ func (m *CMsgGCChatReportPublicSpam) GetChannelUserId() uint32 {
 }
 
 type CMsgDOTAClientIgnoredUser struct {
-	IgnoredAccountId *uint32 `protobuf:"varint,1,opt,name=ignored_account_id,json=ignoredAccountId" json:"ignored_account_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	IgnoredAccountId     *uint32  `protobuf:"varint,1,opt,name=ignored_account_id,json=ignoredAccountId" json:"ignored_account_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CMsgDOTAClientIgnoredUser) Reset()                    { *m = CMsgDOTAClientIgnoredUser{} }
-func (m *CMsgDOTAClientIgnoredUser) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTAClientIgnoredUser) ProtoMessage()               {}
-func (*CMsgDOTAClientIgnoredUser) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{10} }
+func (m *CMsgDOTAClientIgnoredUser) Reset()         { *m = CMsgDOTAClientIgnoredUser{} }
+func (m *CMsgDOTAClientIgnoredUser) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTAClientIgnoredUser) ProtoMessage()    {}
+func (*CMsgDOTAClientIgnoredUser) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{10}
+}
+
+func (m *CMsgDOTAClientIgnoredUser) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAClientIgnoredUser.Unmarshal(m, b)
+}
+func (m *CMsgDOTAClientIgnoredUser) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAClientIgnoredUser.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAClientIgnoredUser) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAClientIgnoredUser.Merge(m, src)
+}
+func (m *CMsgDOTAClientIgnoredUser) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAClientIgnoredUser.Size(m)
+}
+func (m *CMsgDOTAClientIgnoredUser) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAClientIgnoredUser.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAClientIgnoredUser proto.InternalMessageInfo
 
 func (m *CMsgDOTAClientIgnoredUser) GetIgnoredAccountId() uint32 {
 	if m != nil && m.IgnoredAccountId != nil {
@@ -522,17 +788,39 @@ type CMsgDOTAChatMessage struct {
 	SuggestPickHeroId           *uint32                             `protobuf:"varint,26,opt,name=suggest_pick_hero_id,json=suggestPickHeroId" json:"suggest_pick_hero_id,omitempty"`
 	SuggestPickHeroRole         *string                             `protobuf:"bytes,27,opt,name=suggest_pick_hero_role,json=suggestPickHeroRole" json:"suggest_pick_hero_role,omitempty"`
 	SuggestBanHeroId            *uint32                             `protobuf:"varint,30,opt,name=suggest_ban_hero_id,json=suggestBanHeroId" json:"suggest_ban_hero_id,omitempty"`
-	Terse                       *bool                               `protobuf:"varint,28,opt,name=terse" json:"terse,omitempty"`
-	IgnoreMuted                 *bool                               `protobuf:"varint,31,opt,name=ignore_muted,json=ignoreMuted" json:"ignore_muted,omitempty"`
 	TriviaAnswer                *CMsgDOTAChatMessage_TriviaAnswered `protobuf:"bytes,32,opt,name=trivia_answer,json=triviaAnswer" json:"trivia_answer,omitempty"`
 	RequestedAbilityId          *uint32                             `protobuf:"varint,33,opt,name=requested_ability_id,json=requestedAbilityId" json:"requested_ability_id,omitempty"`
+	ChatFlags                   *uint32                             `protobuf:"varint,34,opt,name=chat_flags,json=chatFlags" json:"chat_flags,omitempty"`
+	StartedFindingMatch         *bool                               `protobuf:"varint,35,opt,name=started_finding_match,json=startedFindingMatch" json:"started_finding_match,omitempty"`
+	XXX_NoUnkeyedLiteral        struct{}                            `json:"-"`
 	XXX_unrecognized            []byte                              `json:"-"`
+	XXX_sizecache               int32                               `json:"-"`
 }
 
-func (m *CMsgDOTAChatMessage) Reset()                    { *m = CMsgDOTAChatMessage{} }
-func (m *CMsgDOTAChatMessage) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTAChatMessage) ProtoMessage()               {}
-func (*CMsgDOTAChatMessage) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{11} }
+func (m *CMsgDOTAChatMessage) Reset()         { *m = CMsgDOTAChatMessage{} }
+func (m *CMsgDOTAChatMessage) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTAChatMessage) ProtoMessage()    {}
+func (*CMsgDOTAChatMessage) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{11}
+}
+
+func (m *CMsgDOTAChatMessage) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatMessage.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatMessage.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatMessage) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatMessage.Merge(m, src)
+}
+func (m *CMsgDOTAChatMessage) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatMessage.Size(m)
+}
+func (m *CMsgDOTAChatMessage) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatMessage.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatMessage proto.InternalMessageInfo
 
 const Default_CMsgDOTAChatMessage_PlayerId int32 = -1
 
@@ -739,20 +1027,6 @@ func (m *CMsgDOTAChatMessage) GetSuggestBanHeroId() uint32 {
 	return 0
 }
 
-func (m *CMsgDOTAChatMessage) GetTerse() bool {
-	if m != nil && m.Terse != nil {
-		return *m.Terse
-	}
-	return false
-}
-
-func (m *CMsgDOTAChatMessage) GetIgnoreMuted() bool {
-	if m != nil && m.IgnoreMuted != nil {
-		return *m.IgnoreMuted
-	}
-	return false
-}
-
 func (m *CMsgDOTAChatMessage) GetTriviaAnswer() *CMsgDOTAChatMessage_TriviaAnswered {
 	if m != nil {
 		return m.TriviaAnswer
@@ -767,19 +1041,53 @@ func (m *CMsgDOTAChatMessage) GetRequestedAbilityId() uint32 {
 	return 0
 }
 
+func (m *CMsgDOTAChatMessage) GetChatFlags() uint32 {
+	if m != nil && m.ChatFlags != nil {
+		return *m.ChatFlags
+	}
+	return 0
+}
+
+func (m *CMsgDOTAChatMessage) GetStartedFindingMatch() bool {
+	if m != nil && m.StartedFindingMatch != nil {
+		return *m.StartedFindingMatch
+	}
+	return false
+}
+
 type CMsgDOTAChatMessage_DiceRoll struct {
-	RollMin          *int32 `protobuf:"varint,1,opt,name=roll_min,json=rollMin" json:"roll_min,omitempty"`
-	RollMax          *int32 `protobuf:"varint,2,opt,name=roll_max,json=rollMax" json:"roll_max,omitempty"`
-	Result           *int32 `protobuf:"varint,3,opt,name=result" json:"result,omitempty"`
-	XXX_unrecognized []byte `json:"-"`
+	RollMin              *int32   `protobuf:"varint,1,opt,name=roll_min,json=rollMin" json:"roll_min,omitempty"`
+	RollMax              *int32   `protobuf:"varint,2,opt,name=roll_max,json=rollMax" json:"roll_max,omitempty"`
+	Result               *int32   `protobuf:"varint,3,opt,name=result" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CMsgDOTAChatMessage_DiceRoll) Reset()         { *m = CMsgDOTAChatMessage_DiceRoll{} }
 func (m *CMsgDOTAChatMessage_DiceRoll) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTAChatMessage_DiceRoll) ProtoMessage()    {}
 func (*CMsgDOTAChatMessage_DiceRoll) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{11, 0}
+	return fileDescriptor_56aef27c555bd81b, []int{11, 0}
 }
+
+func (m *CMsgDOTAChatMessage_DiceRoll) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatMessage_DiceRoll.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatMessage_DiceRoll) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatMessage_DiceRoll.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatMessage_DiceRoll) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatMessage_DiceRoll.Merge(m, src)
+}
+func (m *CMsgDOTAChatMessage_DiceRoll) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatMessage_DiceRoll.Size(m)
+}
+func (m *CMsgDOTAChatMessage_DiceRoll) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatMessage_DiceRoll.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatMessage_DiceRoll proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatMessage_DiceRoll) GetRollMin() int32 {
 	if m != nil && m.RollMin != nil {
@@ -803,20 +1111,40 @@ func (m *CMsgDOTAChatMessage_DiceRoll) GetResult() int32 {
 }
 
 type CMsgDOTAChatMessage_TriviaAnswered struct {
-	QuestionId            *uint32 `protobuf:"varint,1,opt,name=question_id,json=questionId" json:"question_id,omitempty"`
-	AnswerIndex           *uint32 `protobuf:"varint,2,opt,name=answer_index,json=answerIndex" json:"answer_index,omitempty"`
-	PartyQuestionsCorrect *uint32 `protobuf:"varint,3,opt,name=party_questions_correct,json=partyQuestionsCorrect" json:"party_questions_correct,omitempty"`
-	PartyQuestionsViewed  *uint32 `protobuf:"varint,4,opt,name=party_questions_viewed,json=partyQuestionsViewed" json:"party_questions_viewed,omitempty"`
-	PartyTriviaPoints     *uint32 `protobuf:"varint,5,opt,name=party_trivia_points,json=partyTriviaPoints" json:"party_trivia_points,omitempty"`
-	XXX_unrecognized      []byte  `json:"-"`
+	QuestionId            *uint32  `protobuf:"varint,1,opt,name=question_id,json=questionId" json:"question_id,omitempty"`
+	AnswerIndex           *uint32  `protobuf:"varint,2,opt,name=answer_index,json=answerIndex" json:"answer_index,omitempty"`
+	PartyQuestionsCorrect *uint32  `protobuf:"varint,3,opt,name=party_questions_correct,json=partyQuestionsCorrect" json:"party_questions_correct,omitempty"`
+	PartyQuestionsViewed  *uint32  `protobuf:"varint,4,opt,name=party_questions_viewed,json=partyQuestionsViewed" json:"party_questions_viewed,omitempty"`
+	PartyTriviaPoints     *uint32  `protobuf:"varint,5,opt,name=party_trivia_points,json=partyTriviaPoints" json:"party_trivia_points,omitempty"`
+	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
+	XXX_unrecognized      []byte   `json:"-"`
+	XXX_sizecache         int32    `json:"-"`
 }
 
 func (m *CMsgDOTAChatMessage_TriviaAnswered) Reset()         { *m = CMsgDOTAChatMessage_TriviaAnswered{} }
 func (m *CMsgDOTAChatMessage_TriviaAnswered) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTAChatMessage_TriviaAnswered) ProtoMessage()    {}
 func (*CMsgDOTAChatMessage_TriviaAnswered) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{11, 1}
+	return fileDescriptor_56aef27c555bd81b, []int{11, 1}
 }
+
+func (m *CMsgDOTAChatMessage_TriviaAnswered) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatMessage_TriviaAnswered.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatMessage_TriviaAnswered) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatMessage_TriviaAnswered.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatMessage_TriviaAnswered) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatMessage_TriviaAnswered.Merge(m, src)
+}
+func (m *CMsgDOTAChatMessage_TriviaAnswered) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatMessage_TriviaAnswered.Size(m)
+}
+func (m *CMsgDOTAChatMessage_TriviaAnswered) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatMessage_TriviaAnswered.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatMessage_TriviaAnswered proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatMessage_TriviaAnswered) GetQuestionId() uint32 {
 	if m != nil && m.QuestionId != nil {
@@ -854,17 +1182,39 @@ func (m *CMsgDOTAChatMessage_TriviaAnswered) GetPartyTriviaPoints() uint32 {
 }
 
 type CMsgDOTAChatMember struct {
-	SteamId          *uint64 `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	PersonaName      *string `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	ChannelUserId    *uint32 `protobuf:"varint,3,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
-	Status           *uint32 `protobuf:"varint,4,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	SteamId              *uint64  `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
+	PersonaName          *string  `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
+	ChannelUserId        *uint32  `protobuf:"varint,3,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
+	Status               *uint32  `protobuf:"varint,4,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CMsgDOTAChatMember) Reset()                    { *m = CMsgDOTAChatMember{} }
-func (m *CMsgDOTAChatMember) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTAChatMember) ProtoMessage()               {}
-func (*CMsgDOTAChatMember) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{12} }
+func (m *CMsgDOTAChatMember) Reset()         { *m = CMsgDOTAChatMember{} }
+func (m *CMsgDOTAChatMember) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTAChatMember) ProtoMessage()    {}
+func (*CMsgDOTAChatMember) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{12}
+}
+
+func (m *CMsgDOTAChatMember) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatMember.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatMember) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatMember.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatMember) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatMember.Merge(m, src)
+}
+func (m *CMsgDOTAChatMember) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatMember.Size(m)
+}
+func (m *CMsgDOTAChatMember) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatMember.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatMember proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatMember) GetSteamId() uint64 {
 	if m != nil && m.SteamId != nil {
@@ -895,25 +1245,45 @@ func (m *CMsgDOTAChatMember) GetStatus() uint32 {
 }
 
 type CMsgDOTAJoinChatChannelResponse struct {
-	Response         *uint32                                 `protobuf:"varint,1,opt,name=response" json:"response,omitempty"`
-	ChannelName      *string                                 `protobuf:"bytes,2,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
-	ChannelId        *uint64                                 `protobuf:"fixed64,3,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
-	MaxMembers       *uint32                                 `protobuf:"varint,4,opt,name=max_members,json=maxMembers" json:"max_members,omitempty"`
-	Members          []*CMsgDOTAChatMember                   `protobuf:"bytes,5,rep,name=members" json:"members,omitempty"`
-	ChannelType      *DOTAChatChannelTypeT                   `protobuf:"varint,6,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
-	Result           *CMsgDOTAJoinChatChannelResponse_Result `protobuf:"varint,7,opt,name=result,enum=dota.CMsgDOTAJoinChatChannelResponse_Result,def=0" json:"result,omitempty"`
-	GcInitiatedJoin  *bool                                   `protobuf:"varint,8,opt,name=gc_initiated_join,json=gcInitiatedJoin" json:"gc_initiated_join,omitempty"`
-	ChannelUserId    *uint32                                 `protobuf:"varint,9,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
-	WelcomeMessage   *string                                 `protobuf:"bytes,10,opt,name=welcome_message,json=welcomeMessage" json:"welcome_message,omitempty"`
-	XXX_unrecognized []byte                                  `json:"-"`
+	Response             *uint32                                 `protobuf:"varint,1,opt,name=response" json:"response,omitempty"`
+	ChannelName          *string                                 `protobuf:"bytes,2,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
+	ChannelId            *uint64                                 `protobuf:"fixed64,3,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
+	MaxMembers           *uint32                                 `protobuf:"varint,4,opt,name=max_members,json=maxMembers" json:"max_members,omitempty"`
+	Members              []*CMsgDOTAChatMember                   `protobuf:"bytes,5,rep,name=members" json:"members,omitempty"`
+	ChannelType          *DOTAChatChannelTypeT                   `protobuf:"varint,6,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
+	Result               *CMsgDOTAJoinChatChannelResponse_Result `protobuf:"varint,7,opt,name=result,enum=dota.CMsgDOTAJoinChatChannelResponse_Result,def=0" json:"result,omitempty"`
+	GcInitiatedJoin      *bool                                   `protobuf:"varint,8,opt,name=gc_initiated_join,json=gcInitiatedJoin" json:"gc_initiated_join,omitempty"`
+	ChannelUserId        *uint32                                 `protobuf:"varint,9,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
+	WelcomeMessage       *string                                 `protobuf:"bytes,10,opt,name=welcome_message,json=welcomeMessage" json:"welcome_message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                `json:"-"`
+	XXX_unrecognized     []byte                                  `json:"-"`
+	XXX_sizecache        int32                                   `json:"-"`
 }
 
 func (m *CMsgDOTAJoinChatChannelResponse) Reset()         { *m = CMsgDOTAJoinChatChannelResponse{} }
 func (m *CMsgDOTAJoinChatChannelResponse) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTAJoinChatChannelResponse) ProtoMessage()    {}
 func (*CMsgDOTAJoinChatChannelResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{13}
+	return fileDescriptor_56aef27c555bd81b, []int{13}
 }
+
+func (m *CMsgDOTAJoinChatChannelResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAJoinChatChannelResponse.Unmarshal(m, b)
+}
+func (m *CMsgDOTAJoinChatChannelResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAJoinChatChannelResponse.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAJoinChatChannelResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAJoinChatChannelResponse.Merge(m, src)
+}
+func (m *CMsgDOTAJoinChatChannelResponse) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAJoinChatChannelResponse.Size(m)
+}
+func (m *CMsgDOTAJoinChatChannelResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAJoinChatChannelResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAJoinChatChannelResponse proto.InternalMessageInfo
 
 const Default_CMsgDOTAJoinChatChannelResponse_ChannelType DOTAChatChannelTypeT = DOTAChatChannelTypeT_DOTAChannelType_Regional
 const Default_CMsgDOTAJoinChatChannelResponse_Result CMsgDOTAJoinChatChannelResponse_Result = CMsgDOTAJoinChatChannelResponse_JOIN_SUCCESS
@@ -989,15 +1359,37 @@ func (m *CMsgDOTAJoinChatChannelResponse) GetWelcomeMessage() string {
 }
 
 type CMsgDOTAChatChannelFullUpdate struct {
-	ChannelId        *uint64               `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
-	Members          []*CMsgDOTAChatMember `protobuf:"bytes,2,rep,name=members" json:"members,omitempty"`
-	XXX_unrecognized []byte                `json:"-"`
+	ChannelId            *uint64               `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
+	Members              []*CMsgDOTAChatMember `protobuf:"bytes,2,rep,name=members" json:"members,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
-func (m *CMsgDOTAChatChannelFullUpdate) Reset()                    { *m = CMsgDOTAChatChannelFullUpdate{} }
-func (m *CMsgDOTAChatChannelFullUpdate) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTAChatChannelFullUpdate) ProtoMessage()               {}
-func (*CMsgDOTAChatChannelFullUpdate) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{14} }
+func (m *CMsgDOTAChatChannelFullUpdate) Reset()         { *m = CMsgDOTAChatChannelFullUpdate{} }
+func (m *CMsgDOTAChatChannelFullUpdate) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTAChatChannelFullUpdate) ProtoMessage()    {}
+func (*CMsgDOTAChatChannelFullUpdate) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{14}
+}
+
+func (m *CMsgDOTAChatChannelFullUpdate) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatChannelFullUpdate.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatChannelFullUpdate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatChannelFullUpdate.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatChannelFullUpdate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatChannelFullUpdate.Merge(m, src)
+}
+func (m *CMsgDOTAChatChannelFullUpdate) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatChannelFullUpdate.Size(m)
+}
+func (m *CMsgDOTAChatChannelFullUpdate) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatChannelFullUpdate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatChannelFullUpdate proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatChannelFullUpdate) GetChannelId() uint64 {
 	if m != nil && m.ChannelId != nil {
@@ -1014,20 +1406,40 @@ func (m *CMsgDOTAChatChannelFullUpdate) GetMembers() []*CMsgDOTAChatMember {
 }
 
 type CMsgDOTAOtherJoinedChatChannel struct {
-	ChannelId        *uint64 `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
-	PersonaName      *string `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	SteamId          *uint64 `protobuf:"fixed64,3,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	ChannelUserId    *uint32 `protobuf:"varint,4,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
-	Status           *uint32 `protobuf:"varint,5,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ChannelId            *uint64  `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
+	PersonaName          *string  `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
+	SteamId              *uint64  `protobuf:"fixed64,3,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
+	ChannelUserId        *uint32  `protobuf:"varint,4,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
+	Status               *uint32  `protobuf:"varint,5,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CMsgDOTAOtherJoinedChatChannel) Reset()         { *m = CMsgDOTAOtherJoinedChatChannel{} }
 func (m *CMsgDOTAOtherJoinedChatChannel) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTAOtherJoinedChatChannel) ProtoMessage()    {}
 func (*CMsgDOTAOtherJoinedChatChannel) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{15}
+	return fileDescriptor_56aef27c555bd81b, []int{15}
 }
+
+func (m *CMsgDOTAOtherJoinedChatChannel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAOtherJoinedChatChannel.Unmarshal(m, b)
+}
+func (m *CMsgDOTAOtherJoinedChatChannel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAOtherJoinedChatChannel.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAOtherJoinedChatChannel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAOtherJoinedChatChannel.Merge(m, src)
+}
+func (m *CMsgDOTAOtherJoinedChatChannel) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAOtherJoinedChatChannel.Size(m)
+}
+func (m *CMsgDOTAOtherJoinedChatChannel) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAOtherJoinedChatChannel.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAOtherJoinedChatChannel proto.InternalMessageInfo
 
 func (m *CMsgDOTAOtherJoinedChatChannel) GetChannelId() uint64 {
 	if m != nil && m.ChannelId != nil {
@@ -1065,16 +1477,38 @@ func (m *CMsgDOTAOtherJoinedChatChannel) GetStatus() uint32 {
 }
 
 type CMsgDOTAOtherLeftChatChannel struct {
-	ChannelId        *uint64 `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
-	SteamId          *uint64 `protobuf:"fixed64,2,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	ChannelUserId    *uint32 `protobuf:"varint,3,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ChannelId            *uint64  `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
+	SteamId              *uint64  `protobuf:"fixed64,2,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
+	ChannelUserId        *uint32  `protobuf:"varint,3,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CMsgDOTAOtherLeftChatChannel) Reset()                    { *m = CMsgDOTAOtherLeftChatChannel{} }
-func (m *CMsgDOTAOtherLeftChatChannel) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTAOtherLeftChatChannel) ProtoMessage()               {}
-func (*CMsgDOTAOtherLeftChatChannel) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{16} }
+func (m *CMsgDOTAOtherLeftChatChannel) Reset()         { *m = CMsgDOTAOtherLeftChatChannel{} }
+func (m *CMsgDOTAOtherLeftChatChannel) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTAOtherLeftChatChannel) ProtoMessage()    {}
+func (*CMsgDOTAOtherLeftChatChannel) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{16}
+}
+
+func (m *CMsgDOTAOtherLeftChatChannel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAOtherLeftChatChannel.Unmarshal(m, b)
+}
+func (m *CMsgDOTAOtherLeftChatChannel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAOtherLeftChatChannel.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAOtherLeftChatChannel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAOtherLeftChatChannel.Merge(m, src)
+}
+func (m *CMsgDOTAOtherLeftChatChannel) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAOtherLeftChatChannel.Size(m)
+}
+func (m *CMsgDOTAOtherLeftChatChannel) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAOtherLeftChatChannel.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAOtherLeftChatChannel proto.InternalMessageInfo
 
 func (m *CMsgDOTAOtherLeftChatChannel) GetChannelId() uint64 {
 	if m != nil && m.ChannelId != nil {
@@ -1098,18 +1532,38 @@ func (m *CMsgDOTAOtherLeftChatChannel) GetChannelUserId() uint32 {
 }
 
 type CMsgDOTAChatChannelMemberUpdate struct {
-	ChannelId        *uint64                                         `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
-	LeftSteamIds     []uint64                                        `protobuf:"fixed64,2,rep,name=left_steam_ids,json=leftSteamIds" json:"left_steam_ids,omitempty"`
-	JoinedMembers    []*CMsgDOTAChatChannelMemberUpdate_JoinedMember `protobuf:"bytes,3,rep,name=joined_members,json=joinedMembers" json:"joined_members,omitempty"`
-	XXX_unrecognized []byte                                          `json:"-"`
+	ChannelId            *uint64                                         `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
+	LeftSteamIds         []uint64                                        `protobuf:"fixed64,2,rep,name=left_steam_ids,json=leftSteamIds" json:"left_steam_ids,omitempty"`
+	JoinedMembers        []*CMsgDOTAChatChannelMemberUpdate_JoinedMember `protobuf:"bytes,3,rep,name=joined_members,json=joinedMembers" json:"joined_members,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                        `json:"-"`
+	XXX_unrecognized     []byte                                          `json:"-"`
+	XXX_sizecache        int32                                           `json:"-"`
 }
 
 func (m *CMsgDOTAChatChannelMemberUpdate) Reset()         { *m = CMsgDOTAChatChannelMemberUpdate{} }
 func (m *CMsgDOTAChatChannelMemberUpdate) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTAChatChannelMemberUpdate) ProtoMessage()    {}
 func (*CMsgDOTAChatChannelMemberUpdate) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{17}
+	return fileDescriptor_56aef27c555bd81b, []int{17}
 }
+
+func (m *CMsgDOTAChatChannelMemberUpdate) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatChannelMemberUpdate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatChannelMemberUpdate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate.Merge(m, src)
+}
+func (m *CMsgDOTAChatChannelMemberUpdate) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate.Size(m)
+}
+func (m *CMsgDOTAChatChannelMemberUpdate) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatChannelMemberUpdate) GetChannelId() uint64 {
 	if m != nil && m.ChannelId != nil {
@@ -1133,11 +1587,13 @@ func (m *CMsgDOTAChatChannelMemberUpdate) GetJoinedMembers() []*CMsgDOTAChatChan
 }
 
 type CMsgDOTAChatChannelMemberUpdate_JoinedMember struct {
-	SteamId          *uint64 `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	PersonaName      *string `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	ChannelUserId    *uint32 `protobuf:"varint,3,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
-	Status           *uint32 `protobuf:"varint,4,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	SteamId              *uint64  `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
+	PersonaName          *string  `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
+	ChannelUserId        *uint32  `protobuf:"varint,3,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
+	Status               *uint32  `protobuf:"varint,4,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CMsgDOTAChatChannelMemberUpdate_JoinedMember) Reset() {
@@ -1148,8 +1604,26 @@ func (m *CMsgDOTAChatChannelMemberUpdate_JoinedMember) String() string {
 }
 func (*CMsgDOTAChatChannelMemberUpdate_JoinedMember) ProtoMessage() {}
 func (*CMsgDOTAChatChannelMemberUpdate_JoinedMember) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{17, 0}
+	return fileDescriptor_56aef27c555bd81b, []int{17, 0}
 }
+
+func (m *CMsgDOTAChatChannelMemberUpdate_JoinedMember) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate_JoinedMember.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatChannelMemberUpdate_JoinedMember) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate_JoinedMember.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatChannelMemberUpdate_JoinedMember) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate_JoinedMember.Merge(m, src)
+}
+func (m *CMsgDOTAChatChannelMemberUpdate_JoinedMember) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate_JoinedMember.Size(m)
+}
+func (m *CMsgDOTAChatChannelMemberUpdate_JoinedMember) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate_JoinedMember.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatChannelMemberUpdate_JoinedMember proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatChannelMemberUpdate_JoinedMember) GetSteamId() uint64 {
 	if m != nil && m.SteamId != nil {
@@ -1180,19 +1654,41 @@ func (m *CMsgDOTAChatChannelMemberUpdate_JoinedMember) GetStatus() uint32 {
 }
 
 type CMsgDOTARequestChatChannelList struct {
-	XXX_unrecognized []byte `json:"-"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CMsgDOTARequestChatChannelList) Reset()         { *m = CMsgDOTARequestChatChannelList{} }
 func (m *CMsgDOTARequestChatChannelList) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTARequestChatChannelList) ProtoMessage()    {}
 func (*CMsgDOTARequestChatChannelList) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{18}
+	return fileDescriptor_56aef27c555bd81b, []int{18}
 }
 
+func (m *CMsgDOTARequestChatChannelList) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTARequestChatChannelList.Unmarshal(m, b)
+}
+func (m *CMsgDOTARequestChatChannelList) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTARequestChatChannelList.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTARequestChatChannelList) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTARequestChatChannelList.Merge(m, src)
+}
+func (m *CMsgDOTARequestChatChannelList) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTARequestChatChannelList.Size(m)
+}
+func (m *CMsgDOTARequestChatChannelList) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTARequestChatChannelList.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTARequestChatChannelList proto.InternalMessageInfo
+
 type CMsgDOTARequestChatChannelListResponse struct {
-	Channels         []*CMsgDOTARequestChatChannelListResponse_ChatChannel `protobuf:"bytes,1,rep,name=channels" json:"channels,omitempty"`
-	XXX_unrecognized []byte                                                `json:"-"`
+	Channels             []*CMsgDOTARequestChatChannelListResponse_ChatChannel `protobuf:"bytes,1,rep,name=channels" json:"channels,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                              `json:"-"`
+	XXX_unrecognized     []byte                                                `json:"-"`
+	XXX_sizecache        int32                                                 `json:"-"`
 }
 
 func (m *CMsgDOTARequestChatChannelListResponse) Reset() {
@@ -1201,8 +1697,26 @@ func (m *CMsgDOTARequestChatChannelListResponse) Reset() {
 func (m *CMsgDOTARequestChatChannelListResponse) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTARequestChatChannelListResponse) ProtoMessage()    {}
 func (*CMsgDOTARequestChatChannelListResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{19}
+	return fileDescriptor_56aef27c555bd81b, []int{19}
 }
+
+func (m *CMsgDOTARequestChatChannelListResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTARequestChatChannelListResponse.Unmarshal(m, b)
+}
+func (m *CMsgDOTARequestChatChannelListResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTARequestChatChannelListResponse.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTARequestChatChannelListResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTARequestChatChannelListResponse.Merge(m, src)
+}
+func (m *CMsgDOTARequestChatChannelListResponse) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTARequestChatChannelListResponse.Size(m)
+}
+func (m *CMsgDOTARequestChatChannelListResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTARequestChatChannelListResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTARequestChatChannelListResponse proto.InternalMessageInfo
 
 func (m *CMsgDOTARequestChatChannelListResponse) GetChannels() []*CMsgDOTARequestChatChannelListResponse_ChatChannel {
 	if m != nil {
@@ -1212,10 +1726,12 @@ func (m *CMsgDOTARequestChatChannelListResponse) GetChannels() []*CMsgDOTAReques
 }
 
 type CMsgDOTARequestChatChannelListResponse_ChatChannel struct {
-	ChannelName      *string               `protobuf:"bytes,1,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
-	NumMembers       *uint32               `protobuf:"varint,2,opt,name=num_members,json=numMembers" json:"num_members,omitempty"`
-	ChannelType      *DOTAChatChannelTypeT `protobuf:"varint,3,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
-	XXX_unrecognized []byte                `json:"-"`
+	ChannelName          *string               `protobuf:"bytes,1,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
+	NumMembers           *uint32               `protobuf:"varint,2,opt,name=num_members,json=numMembers" json:"num_members,omitempty"`
+	ChannelType          *DOTAChatChannelTypeT `protobuf:"varint,3,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
 func (m *CMsgDOTARequestChatChannelListResponse_ChatChannel) Reset() {
@@ -1226,8 +1742,26 @@ func (m *CMsgDOTARequestChatChannelListResponse_ChatChannel) String() string {
 }
 func (*CMsgDOTARequestChatChannelListResponse_ChatChannel) ProtoMessage() {}
 func (*CMsgDOTARequestChatChannelListResponse_ChatChannel) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{19, 0}
+	return fileDescriptor_56aef27c555bd81b, []int{19, 0}
 }
+
+func (m *CMsgDOTARequestChatChannelListResponse_ChatChannel) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTARequestChatChannelListResponse_ChatChannel.Unmarshal(m, b)
+}
+func (m *CMsgDOTARequestChatChannelListResponse_ChatChannel) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTARequestChatChannelListResponse_ChatChannel.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTARequestChatChannelListResponse_ChatChannel) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTARequestChatChannelListResponse_ChatChannel.Merge(m, src)
+}
+func (m *CMsgDOTARequestChatChannelListResponse_ChatChannel) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTARequestChatChannelListResponse_ChatChannel.Size(m)
+}
+func (m *CMsgDOTARequestChatChannelListResponse_ChatChannel) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTARequestChatChannelListResponse_ChatChannel.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTARequestChatChannelListResponse_ChatChannel proto.InternalMessageInfo
 
 const Default_CMsgDOTARequestChatChannelListResponse_ChatChannel_ChannelType DOTAChatChannelTypeT = DOTAChatChannelTypeT_DOTAChannelType_Regional
 
@@ -1253,14 +1787,36 @@ func (m *CMsgDOTARequestChatChannelListResponse_ChatChannel) GetChannelType() DO
 }
 
 type CMsgDOTAChatGetUserList struct {
-	ChannelId        *uint64 `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	ChannelId            *uint64  `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CMsgDOTAChatGetUserList) Reset()                    { *m = CMsgDOTAChatGetUserList{} }
-func (m *CMsgDOTAChatGetUserList) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTAChatGetUserList) ProtoMessage()               {}
-func (*CMsgDOTAChatGetUserList) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{20} }
+func (m *CMsgDOTAChatGetUserList) Reset()         { *m = CMsgDOTAChatGetUserList{} }
+func (m *CMsgDOTAChatGetUserList) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTAChatGetUserList) ProtoMessage()    {}
+func (*CMsgDOTAChatGetUserList) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{20}
+}
+
+func (m *CMsgDOTAChatGetUserList) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatGetUserList.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatGetUserList) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatGetUserList.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatGetUserList) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatGetUserList.Merge(m, src)
+}
+func (m *CMsgDOTAChatGetUserList) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatGetUserList.Size(m)
+}
+func (m *CMsgDOTAChatGetUserList) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatGetUserList.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatGetUserList proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatGetUserList) GetChannelId() uint64 {
 	if m != nil && m.ChannelId != nil {
@@ -1270,17 +1826,37 @@ func (m *CMsgDOTAChatGetUserList) GetChannelId() uint64 {
 }
 
 type CMsgDOTAChatGetUserListResponse struct {
-	ChannelId        *uint64                                   `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
-	Members          []*CMsgDOTAChatGetUserListResponse_Member `protobuf:"bytes,2,rep,name=members" json:"members,omitempty"`
-	XXX_unrecognized []byte                                    `json:"-"`
+	ChannelId            *uint64                                   `protobuf:"fixed64,1,opt,name=channel_id,json=channelId" json:"channel_id,omitempty"`
+	Members              []*CMsgDOTAChatGetUserListResponse_Member `protobuf:"bytes,2,rep,name=members" json:"members,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                  `json:"-"`
+	XXX_unrecognized     []byte                                    `json:"-"`
+	XXX_sizecache        int32                                     `json:"-"`
 }
 
 func (m *CMsgDOTAChatGetUserListResponse) Reset()         { *m = CMsgDOTAChatGetUserListResponse{} }
 func (m *CMsgDOTAChatGetUserListResponse) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTAChatGetUserListResponse) ProtoMessage()    {}
 func (*CMsgDOTAChatGetUserListResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{21}
+	return fileDescriptor_56aef27c555bd81b, []int{21}
 }
+
+func (m *CMsgDOTAChatGetUserListResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatGetUserListResponse.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatGetUserListResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatGetUserListResponse.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatGetUserListResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatGetUserListResponse.Merge(m, src)
+}
+func (m *CMsgDOTAChatGetUserListResponse) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatGetUserListResponse.Size(m)
+}
+func (m *CMsgDOTAChatGetUserListResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatGetUserListResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatGetUserListResponse proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatGetUserListResponse) GetChannelId() uint64 {
 	if m != nil && m.ChannelId != nil {
@@ -1297,11 +1873,13 @@ func (m *CMsgDOTAChatGetUserListResponse) GetMembers() []*CMsgDOTAChatGetUserLis
 }
 
 type CMsgDOTAChatGetUserListResponse_Member struct {
-	SteamId          *uint64 `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	PersonaName      *string `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	ChannelUserId    *uint32 `protobuf:"varint,3,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
-	Status           *uint32 `protobuf:"varint,4,opt,name=status" json:"status,omitempty"`
-	XXX_unrecognized []byte  `json:"-"`
+	SteamId              *uint64  `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
+	PersonaName          *string  `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
+	ChannelUserId        *uint32  `protobuf:"varint,3,opt,name=channel_user_id,json=channelUserId" json:"channel_user_id,omitempty"`
+	Status               *uint32  `protobuf:"varint,4,opt,name=status" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CMsgDOTAChatGetUserListResponse_Member) Reset() {
@@ -1310,8 +1888,26 @@ func (m *CMsgDOTAChatGetUserListResponse_Member) Reset() {
 func (m *CMsgDOTAChatGetUserListResponse_Member) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTAChatGetUserListResponse_Member) ProtoMessage()    {}
 func (*CMsgDOTAChatGetUserListResponse_Member) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{21, 0}
+	return fileDescriptor_56aef27c555bd81b, []int{21, 0}
 }
+
+func (m *CMsgDOTAChatGetUserListResponse_Member) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatGetUserListResponse_Member.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatGetUserListResponse_Member) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatGetUserListResponse_Member.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatGetUserListResponse_Member) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatGetUserListResponse_Member.Merge(m, src)
+}
+func (m *CMsgDOTAChatGetUserListResponse_Member) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatGetUserListResponse_Member.Size(m)
+}
+func (m *CMsgDOTAChatGetUserListResponse_Member) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatGetUserListResponse_Member.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatGetUserListResponse_Member proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatGetUserListResponse_Member) GetSteamId() uint64 {
 	if m != nil && m.SteamId != nil {
@@ -1342,15 +1938,37 @@ func (m *CMsgDOTAChatGetUserListResponse_Member) GetStatus() uint32 {
 }
 
 type CMsgDOTAChatGetMemberCount struct {
-	ChannelName      *string               `protobuf:"bytes,1,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
-	ChannelType      *DOTAChatChannelTypeT `protobuf:"varint,2,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
-	XXX_unrecognized []byte                `json:"-"`
+	ChannelName          *string               `protobuf:"bytes,1,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
+	ChannelType          *DOTAChatChannelTypeT `protobuf:"varint,2,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
-func (m *CMsgDOTAChatGetMemberCount) Reset()                    { *m = CMsgDOTAChatGetMemberCount{} }
-func (m *CMsgDOTAChatGetMemberCount) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTAChatGetMemberCount) ProtoMessage()               {}
-func (*CMsgDOTAChatGetMemberCount) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{22} }
+func (m *CMsgDOTAChatGetMemberCount) Reset()         { *m = CMsgDOTAChatGetMemberCount{} }
+func (m *CMsgDOTAChatGetMemberCount) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTAChatGetMemberCount) ProtoMessage()    {}
+func (*CMsgDOTAChatGetMemberCount) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{22}
+}
+
+func (m *CMsgDOTAChatGetMemberCount) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatGetMemberCount.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatGetMemberCount) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatGetMemberCount.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatGetMemberCount) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatGetMemberCount.Merge(m, src)
+}
+func (m *CMsgDOTAChatGetMemberCount) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatGetMemberCount.Size(m)
+}
+func (m *CMsgDOTAChatGetMemberCount) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatGetMemberCount.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatGetMemberCount proto.InternalMessageInfo
 
 const Default_CMsgDOTAChatGetMemberCount_ChannelType DOTAChatChannelTypeT = DOTAChatChannelTypeT_DOTAChannelType_Regional
 
@@ -1369,18 +1987,38 @@ func (m *CMsgDOTAChatGetMemberCount) GetChannelType() DOTAChatChannelTypeT {
 }
 
 type CMsgDOTAChatGetMemberCountResponse struct {
-	ChannelName      *string               `protobuf:"bytes,1,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
-	ChannelType      *DOTAChatChannelTypeT `protobuf:"varint,2,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
-	MemberCount      *uint32               `protobuf:"varint,3,opt,name=member_count,json=memberCount" json:"member_count,omitempty"`
-	XXX_unrecognized []byte                `json:"-"`
+	ChannelName          *string               `protobuf:"bytes,1,opt,name=channel_name,json=channelName" json:"channel_name,omitempty"`
+	ChannelType          *DOTAChatChannelTypeT `protobuf:"varint,2,opt,name=channel_type,json=channelType,enum=dota.DOTAChatChannelTypeT,def=0" json:"channel_type,omitempty"`
+	MemberCount          *uint32               `protobuf:"varint,3,opt,name=member_count,json=memberCount" json:"member_count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
 func (m *CMsgDOTAChatGetMemberCountResponse) Reset()         { *m = CMsgDOTAChatGetMemberCountResponse{} }
 func (m *CMsgDOTAChatGetMemberCountResponse) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTAChatGetMemberCountResponse) ProtoMessage()    {}
 func (*CMsgDOTAChatGetMemberCountResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{23}
+	return fileDescriptor_56aef27c555bd81b, []int{23}
 }
+
+func (m *CMsgDOTAChatGetMemberCountResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatGetMemberCountResponse.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatGetMemberCountResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatGetMemberCountResponse.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatGetMemberCountResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatGetMemberCountResponse.Merge(m, src)
+}
+func (m *CMsgDOTAChatGetMemberCountResponse) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatGetMemberCountResponse.Size(m)
+}
+func (m *CMsgDOTAChatGetMemberCountResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatGetMemberCountResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatGetMemberCountResponse proto.InternalMessageInfo
 
 const Default_CMsgDOTAChatGetMemberCountResponse_ChannelType DOTAChatChannelTypeT = DOTAChatChannelTypeT_DOTAChannelType_Regional
 
@@ -1406,15 +2044,37 @@ func (m *CMsgDOTAChatGetMemberCountResponse) GetMemberCount() uint32 {
 }
 
 type CMsgDOTAChatRegionsEnabled struct {
-	EnableAllRegions *bool                                `protobuf:"varint,1,opt,name=enable_all_regions,json=enableAllRegions" json:"enable_all_regions,omitempty"`
-	EnabledRegions   []*CMsgDOTAChatRegionsEnabled_Region `protobuf:"bytes,2,rep,name=enabled_regions,json=enabledRegions" json:"enabled_regions,omitempty"`
-	XXX_unrecognized []byte                               `json:"-"`
+	EnableAllRegions     *bool                                `protobuf:"varint,1,opt,name=enable_all_regions,json=enableAllRegions" json:"enable_all_regions,omitempty"`
+	EnabledRegions       []*CMsgDOTAChatRegionsEnabled_Region `protobuf:"bytes,2,rep,name=enabled_regions,json=enabledRegions" json:"enabled_regions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
+	XXX_unrecognized     []byte                               `json:"-"`
+	XXX_sizecache        int32                                `json:"-"`
 }
 
-func (m *CMsgDOTAChatRegionsEnabled) Reset()                    { *m = CMsgDOTAChatRegionsEnabled{} }
-func (m *CMsgDOTAChatRegionsEnabled) String() string            { return proto.CompactTextString(m) }
-func (*CMsgDOTAChatRegionsEnabled) ProtoMessage()               {}
-func (*CMsgDOTAChatRegionsEnabled) Descriptor() ([]byte, []int) { return fileDescriptor10, []int{24} }
+func (m *CMsgDOTAChatRegionsEnabled) Reset()         { *m = CMsgDOTAChatRegionsEnabled{} }
+func (m *CMsgDOTAChatRegionsEnabled) String() string { return proto.CompactTextString(m) }
+func (*CMsgDOTAChatRegionsEnabled) ProtoMessage()    {}
+func (*CMsgDOTAChatRegionsEnabled) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56aef27c555bd81b, []int{24}
+}
+
+func (m *CMsgDOTAChatRegionsEnabled) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatRegionsEnabled.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatRegionsEnabled) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatRegionsEnabled.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatRegionsEnabled) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatRegionsEnabled.Merge(m, src)
+}
+func (m *CMsgDOTAChatRegionsEnabled) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatRegionsEnabled.Size(m)
+}
+func (m *CMsgDOTAChatRegionsEnabled) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatRegionsEnabled.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatRegionsEnabled proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatRegionsEnabled) GetEnableAllRegions() bool {
 	if m != nil && m.EnableAllRegions != nil {
@@ -1431,19 +2091,39 @@ func (m *CMsgDOTAChatRegionsEnabled) GetEnabledRegions() []*CMsgDOTAChatRegionsE
 }
 
 type CMsgDOTAChatRegionsEnabled_Region struct {
-	MinLatitude      *float32 `protobuf:"fixed32,1,opt,name=min_latitude,json=minLatitude" json:"min_latitude,omitempty"`
-	MaxLatitude      *float32 `protobuf:"fixed32,2,opt,name=max_latitude,json=maxLatitude" json:"max_latitude,omitempty"`
-	MinLongitude     *float32 `protobuf:"fixed32,3,opt,name=min_longitude,json=minLongitude" json:"min_longitude,omitempty"`
-	MaxLongitude     *float32 `protobuf:"fixed32,4,opt,name=max_longitude,json=maxLongitude" json:"max_longitude,omitempty"`
-	XXX_unrecognized []byte   `json:"-"`
+	MinLatitude          *float32 `protobuf:"fixed32,1,opt,name=min_latitude,json=minLatitude" json:"min_latitude,omitempty"`
+	MaxLatitude          *float32 `protobuf:"fixed32,2,opt,name=max_latitude,json=maxLatitude" json:"max_latitude,omitempty"`
+	MinLongitude         *float32 `protobuf:"fixed32,3,opt,name=min_longitude,json=minLongitude" json:"min_longitude,omitempty"`
+	MaxLongitude         *float32 `protobuf:"fixed32,4,opt,name=max_longitude,json=maxLongitude" json:"max_longitude,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CMsgDOTAChatRegionsEnabled_Region) Reset()         { *m = CMsgDOTAChatRegionsEnabled_Region{} }
 func (m *CMsgDOTAChatRegionsEnabled_Region) String() string { return proto.CompactTextString(m) }
 func (*CMsgDOTAChatRegionsEnabled_Region) ProtoMessage()    {}
 func (*CMsgDOTAChatRegionsEnabled_Region) Descriptor() ([]byte, []int) {
-	return fileDescriptor10, []int{24, 0}
+	return fileDescriptor_56aef27c555bd81b, []int{24, 0}
 }
+
+func (m *CMsgDOTAChatRegionsEnabled_Region) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CMsgDOTAChatRegionsEnabled_Region.Unmarshal(m, b)
+}
+func (m *CMsgDOTAChatRegionsEnabled_Region) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CMsgDOTAChatRegionsEnabled_Region.Marshal(b, m, deterministic)
+}
+func (m *CMsgDOTAChatRegionsEnabled_Region) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CMsgDOTAChatRegionsEnabled_Region.Merge(m, src)
+}
+func (m *CMsgDOTAChatRegionsEnabled_Region) XXX_Size() int {
+	return xxx_messageInfo_CMsgDOTAChatRegionsEnabled_Region.Size(m)
+}
+func (m *CMsgDOTAChatRegionsEnabled_Region) XXX_DiscardUnknown() {
+	xxx_messageInfo_CMsgDOTAChatRegionsEnabled_Region.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CMsgDOTAChatRegionsEnabled_Region proto.InternalMessageInfo
 
 func (m *CMsgDOTAChatRegionsEnabled_Region) GetMinLatitude() float32 {
 	if m != nil && m.MinLatitude != nil {
@@ -1474,6 +2154,8 @@ func (m *CMsgDOTAChatRegionsEnabled_Region) GetMaxLongitude() float32 {
 }
 
 func init() {
+	proto.RegisterEnum("dota.CMsgGCToClientPrivateChatResponse_Result", CMsgGCToClientPrivateChatResponse_Result_name, CMsgGCToClientPrivateChatResponse_Result_value)
+	proto.RegisterEnum("dota.CMsgDOTAJoinChatChannelResponse_Result", CMsgDOTAJoinChatChannelResponse_Result_name, CMsgDOTAJoinChatChannelResponse_Result_value)
 	proto.RegisterType((*CMsgClientToGCPrivateChatInvite)(nil), "dota.CMsgClientToGCPrivateChatInvite")
 	proto.RegisterType((*CMsgClientToGCPrivateChatKick)(nil), "dota.CMsgClientToGCPrivateChatKick")
 	proto.RegisterType((*CMsgClientToGCPrivateChatPromote)(nil), "dota.CMsgClientToGCPrivateChatPromote")
@@ -1506,165 +2188,164 @@ func init() {
 	proto.RegisterType((*CMsgDOTAChatGetMemberCountResponse)(nil), "dota.CMsgDOTAChatGetMemberCountResponse")
 	proto.RegisterType((*CMsgDOTAChatRegionsEnabled)(nil), "dota.CMsgDOTAChatRegionsEnabled")
 	proto.RegisterType((*CMsgDOTAChatRegionsEnabled_Region)(nil), "dota.CMsgDOTAChatRegionsEnabled.Region")
-	proto.RegisterEnum("dota.CMsgGCToClientPrivateChatResponse_Result", CMsgGCToClientPrivateChatResponse_Result_name, CMsgGCToClientPrivateChatResponse_Result_value)
-	proto.RegisterEnum("dota.CMsgDOTAJoinChatChannelResponse_Result", CMsgDOTAJoinChatChannelResponse_Result_name, CMsgDOTAJoinChatChannelResponse_Result_value)
 }
 
-func init() { proto.RegisterFile("dota_gcmessages_client_chat.proto", fileDescriptor10) }
+func init() { proto.RegisterFile("dota_gcmessages_client_chat.proto", fileDescriptor_56aef27c555bd81b) }
 
-var fileDescriptor10 = []byte{
-	// 2435 bytes of a gzipped FileDescriptorProto
+var fileDescriptor_56aef27c555bd81b = []byte{
+	// 2451 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x18, 0x4b, 0x73, 0xdb, 0xc6,
-	0x39, 0xa0, 0x5e, 0xe4, 0x47, 0x89, 0x82, 0xd7, 0xb2, 0x04, 0xd1, 0x0f, 0xc9, 0x4c, 0x9a, 0x68,
-	0x32, 0x8e, 0xda, 0xaa, 0xaf, 0xc4, 0x97, 0x0e, 0x4c, 0x42, 0x36, 0x62, 0xbe, 0x02, 0x52, 0x4e,
-	0x7c, 0xda, 0x59, 0x01, 0x2b, 0x1a, 0x31, 0x08, 0xb0, 0xc0, 0x52, 0x96, 0x6e, 0x99, 0x1e, 0x3a,
-	0x6d, 0xd3, 0x4b, 0x7b, 0xe8, 0xb4, 0x97, 0xf6, 0x07, 0xb4, 0xf7, 0x9e, 0x7a, 0xcb, 0x0f, 0xe8,
-	0x0f, 0xe9, 0xa9, 0xbf, 0xa0, 0xb3, 0xbb, 0x78, 0x52, 0x94, 0x94, 0x8e, 0x3c, 0xcd, 0x85, 0xc3,
-	0xfd, 0xde, 0xaf, 0xfd, 0xf6, 0xfb, 0x00, 0x0f, 0x9d, 0x80, 0x11, 0x3c, 0xb2, 0xc7, 0x34, 0x8a,
-	0xc8, 0x88, 0x46, 0xd8, 0xf6, 0x5c, 0xea, 0x33, 0x6c, 0xbf, 0x22, 0x6c, 0x7f, 0x12, 0x06, 0x2c,
-	0x40, 0x8b, 0x9c, 0xa4, 0xbe, 0x25, 0x08, 0xa3, 0x57, 0x24, 0xa4, 0x0e, 0xa6, 0xfe, 0x74, 0x1c,
-	0x49, 0x74, 0xe3, 0xb7, 0x0a, 0xec, 0x34, 0x3b, 0xd1, 0xa8, 0x29, 0x18, 0x87, 0xc1, 0xd3, 0x66,
-	0x3f, 0x74, 0x4f, 0x09, 0xa3, 0xcd, 0x57, 0x84, 0x99, 0xfe, 0xa9, 0xcb, 0x28, 0xfa, 0x04, 0xb6,
-	0x27, 0x12, 0x28, 0x04, 0xf3, 0x1f, 0xdf, 0xa7, 0x1e, 0xf6, 0xc9, 0x98, 0x6a, 0xca, 0xae, 0xb2,
-	0x57, 0xb1, 0x36, 0x27, 0x19, 0x57, 0x53, 0xa2, 0xbb, 0x64, 0x4c, 0xd1, 0x23, 0x40, 0xae, 0x10,
-	0xe2, 0x60, 0x62, 0xdb, 0xc1, 0xd4, 0x67, 0xd8, 0x75, 0xb4, 0xd2, 0xae, 0xb2, 0xb7, 0x66, 0xa9,
-	0x31, 0x46, 0x97, 0x08, 0xd3, 0x69, 0xfc, 0x52, 0x81, 0xfb, 0x97, 0x1a, 0xf3, 0xdc, 0xb5, 0x5f,
-	0xdf, 0xc4, 0x94, 0xf7, 0x61, 0xfd, 0xb5, 0x6b, 0xbf, 0xbe, 0x68, 0xc7, 0x1a, 0x07, 0x67, 0x46,
-	0x7c, 0xad, 0xc0, 0xee, 0xa5, 0x46, 0xf4, 0xc3, 0x60, 0x1c, 0xdc, 0x38, 0x24, 0x13, 0x29, 0x65,
-	0x4e, 0x48, 0x62, 0x4c, 0x66, 0xcd, 0xaf, 0xaf, 0xca, 0x4f, 0x8b, 0xde, 0xd4, 0x98, 0x0f, 0xe1,
-	0x96, 0x43, 0xe7, 0xdb, 0xb2, 0x2e, 0x11, 0x99, 0x29, 0xff, 0x5e, 0x84, 0x87, 0xdc, 0x94, 0xa7,
-	0xcd, 0x61, 0x20, 0xcd, 0xc9, 0x99, 0x62, 0xd1, 0x68, 0x12, 0xf8, 0xd1, 0x8d, 0x8c, 0xe9, 0xc1,
-	0x72, 0x48, 0xa3, 0xa9, 0xc7, 0x84, 0x05, 0xb5, 0x83, 0xfd, 0x7d, 0x5e, 0xb5, 0xfb, 0xd7, 0xea,
-	0xdc, 0xb7, 0x04, 0xd7, 0xe3, 0x95, 0xc1, 0x51, 0xb3, 0x69, 0x0c, 0x06, 0x56, 0x2c, 0x06, 0xd5,
-	0xa1, 0x3c, 0x8d, 0x68, 0x28, 0x54, 0x2f, 0x08, 0xd5, 0xe9, 0xb9, 0xf1, 0x97, 0x05, 0x58, 0x96,
-	0x7c, 0xa8, 0x0a, 0x09, 0xa7, 0xfa, 0x0e, 0xda, 0x86, 0x3b, 0x87, 0xba, 0xd9, 0x3e, 0xb2, 0x0c,
-	0xdc, 0xb4, 0x0c, 0x7d, 0x68, 0xf6, 0xba, 0xb8, 0xdd, 0x6b, 0x3e, 0x57, 0x15, 0x74, 0x17, 0xb6,
-	0x12, 0xd4, 0xe0, 0xb3, 0x36, 0x1e, 0x5a, 0x7a, 0x77, 0xa0, 0x37, 0x39, 0x85, 0x5a, 0x42, 0x1b,
-	0xa0, 0xa6, 0xc8, 0x56, 0x0f, 0xb7, 0x7b, 0x7a, 0x4b, 0x5d, 0xc8, 0x4b, 0xeb, 0xf6, 0x70, 0xdf,
-	0xb0, 0x3a, 0xe6, 0x60, 0xc0, 0x19, 0x16, 0x51, 0x1d, 0x36, 0x13, 0x94, 0xde, 0xb6, 0x0c, 0xbd,
-	0xf5, 0x12, 0x77, 0x8c, 0xce, 0x13, 0xc3, 0x52, 0x97, 0x90, 0x06, 0x1b, 0x19, 0xdb, 0x10, 0xeb,
-	0x09, 0x66, 0x05, 0xed, 0xc0, 0xdd, 0x9c, 0x40, 0xcb, 0xe8, 0xe8, 0x66, 0xd7, 0xec, 0x3e, 0xc5,
-	0x7a, 0xab, 0x63, 0x76, 0x07, 0x6a, 0x19, 0xdd, 0x86, 0xf5, 0x3c, 0x41, 0xaf, 0xd7, 0x51, 0x2b,
-	0xe8, 0x21, 0xdc, 0xbf, 0xe0, 0x94, 0xa5, 0x0f, 0x0d, 0xdc, 0x36, 0x3b, 0xe6, 0xd0, 0x68, 0xa9,
-	0x80, 0x76, 0xe1, 0x5e, 0x42, 0x72, 0xd4, 0x7d, 0xde, 0xed, 0x7d, 0xde, 0xc5, 0xcd, 0x67, 0x7a,
-	0xb7, 0x6b, 0xb4, 0x71, 0x57, 0xef, 0x18, 0x6a, 0x35, 0x6f, 0x54, 0x42, 0x71, 0x34, 0x30, 0x2c,
-	0x75, 0x35, 0xef, 0x65, 0x82, 0x31, 0x2c, 0xab, 0x67, 0xa9, 0x6b, 0xe8, 0x3e, 0x6c, 0xa7, 0x9a,
-	0xf5, 0x2e, 0x77, 0xe6, 0xb9, 0xd9, 0x7c, 0x2e, 0xcd, 0x55, 0x6b, 0x79, 0xce, 0x24, 0x08, 0x12,
-	0xb5, 0xde, 0x20, 0xf0, 0xde, 0x15, 0x8d, 0xe9, 0x24, 0xb0, 0xe8, 0x2f, 0xa6, 0x34, 0x62, 0x37,
-	0x28, 0xb8, 0xc6, 0x37, 0x25, 0xf8, 0xde, 0xa5, 0xd5, 0x25, 0x75, 0xdc, 0xbc, 0xaa, 0xdb, 0xb0,
-	0x32, 0xa6, 0xe3, 0x63, 0x1a, 0x46, 0x5a, 0x69, 0x77, 0x61, 0xaf, 0x7a, 0x70, 0x70, 0x4d, 0x59,
-	0xe7, 0x15, 0xef, 0x77, 0x04, 0xab, 0x95, 0x88, 0x40, 0x1a, 0xac, 0xd8, 0x21, 0x25, 0x2c, 0x08,
-	0x45, 0x45, 0xaf, 0x59, 0xc9, 0x11, 0xbd, 0x0b, 0x6b, 0xe2, 0xaf, 0x1b, 0xf8, 0xd8, 0x21, 0x8c,
-	0x6a, 0x8b, 0x02, 0xbf, 0x9a, 0x00, 0x5b, 0x84, 0xd1, 0xfa, 0x00, 0x96, 0xa5, 0x44, 0x74, 0x1f,
-	0x20, 0x77, 0xe5, 0x15, 0x41, 0x5b, 0x21, 0xc9, 0x65, 0x47, 0x08, 0x16, 0x85, 0x6f, 0x25, 0xe1,
-	0x9b, 0xf8, 0x8f, 0x36, 0x61, 0x39, 0x62, 0x84, 0x4d, 0xa3, 0x58, 0x75, 0x7c, 0x6a, 0xfc, 0x51,
-	0x81, 0x2d, 0xee, 0x4d, 0xab, 0x37, 0xd4, 0x3f, 0x0d, 0x5c, 0x3f, 0x17, 0x01, 0xf4, 0x10, 0x56,
-	0x0b, 0xb1, 0x92, 0xf2, 0xaa, 0x76, 0x2e, 0x40, 0x5f, 0x64, 0x24, 0xec, 0x7c, 0x22, 0xed, 0xae,
-	0x1d, 0xdc, 0x95, 0x51, 0xe2, 0x32, 0x73, 0xf2, 0x86, 0xe7, 0x13, 0x8a, 0xd9, 0x63, 0x2d, 0x06,
-	0xa7, 0x20, 0x8b, 0x8e, 0xdc, 0xc0, 0x27, 0x5e, 0x2a, 0x99, 0x43, 0x1b, 0x9f, 0x80, 0x96, 0xd8,
-	0xd5, 0xa6, 0xe4, 0x34, 0x9f, 0x1a, 0xee, 0x7f, 0xa2, 0x35, 0xf6, 0x7f, 0xd1, 0xaa, 0xc4, 0x10,
-	0xd3, 0x69, 0xd8, 0x50, 0x97, 0x09, 0x92, 0x8d, 0x66, 0x12, 0x84, 0xac, 0x3f, 0x3d, 0xf6, 0x5c,
-	0x7b, 0x30, 0x21, 0xe3, 0x6b, 0x98, 0xf9, 0x53, 0x93, 0xa0, 0x79, 0xbf, 0xc9, 0x3d, 0x35, 0x31,
-	0xf8, 0x28, 0xa2, 0xa1, 0xe9, 0x34, 0x4c, 0xd8, 0x4e, 0xec, 0x93, 0x55, 0x60, 0x8e, 0xfc, 0x20,
-	0xa4, 0x0e, 0x47, 0x8b, 0xa7, 0x53, 0x1e, 0xf1, 0x85, 0x44, 0xa9, 0x31, 0x26, 0x6b, 0xce, 0x7f,
-	0xad, 0xc1, 0xed, 0x54, 0xd6, 0x2b, 0xc2, 0x3a, 0x72, 0x22, 0xb8, 0x2e, 0xcd, 0x45, 0x47, 0x4a,
-	0xb3, 0x8e, 0x3c, 0x84, 0xd5, 0x09, 0x0d, 0xa3, 0xc0, 0x27, 0x38, 0xd7, 0x44, 0xab, 0x31, 0x4c,
-	0x64, 0x0f, 0xc1, 0x22, 0xa3, 0x67, 0x4c, 0x64, 0xad, 0x62, 0x89, 0xff, 0xe8, 0x1e, 0x54, 0x98,
-	0x3b, 0xa6, 0x11, 0x23, 0xe3, 0x89, 0xb6, 0x24, 0x75, 0xa6, 0x00, 0x7e, 0x97, 0xa2, 0xe9, 0x68,
-	0x44, 0x23, 0x86, 0xe5, 0x04, 0x90, 0xf7, 0x6f, 0x59, 0x50, 0x6f, 0xc6, 0x04, 0x72, 0x00, 0x49,
-	0xbd, 0x44, 0xfb, 0x70, 0x7b, 0x86, 0x55, 0x98, 0xb5, 0x22, 0x74, 0xdf, 0x2a, 0x30, 0x09, 0xe3,
-	0x9e, 0xc0, 0x83, 0x13, 0xe2, 0x33, 0x12, 0x9d, 0x63, 0x27, 0x24, 0x27, 0x0c, 0x07, 0x6f, 0x7c,
-	0x1a, 0xe6, 0xf5, 0x95, 0x85, 0xbe, 0x7a, 0x4c, 0xd5, 0xe2, 0x44, 0x3d, 0x4e, 0x93, 0xe9, 0x6c,
-	0xc1, 0x4e, 0x51, 0xc6, 0xc4, 0x23, 0xe7, 0x45, 0x21, 0x15, 0x21, 0xe4, 0x6e, 0x5e, 0x48, 0x5f,
-	0x10, 0x65, 0x52, 0xb6, 0xa1, 0x4c, 0x4f, 0xa9, 0x24, 0x07, 0x79, 0x71, 0xc5, 0xd9, 0x74, 0xd0,
-	0x4f, 0x60, 0x6b, 0xc6, 0x29, 0x16, 0x60, 0x2f, 0x38, 0x3e, 0x3e, 0xd7, 0xaa, 0xbb, 0xca, 0x5e,
-	0xd9, 0xda, 0x28, 0x38, 0x36, 0x0c, 0xda, 0x1c, 0xc7, 0x73, 0x23, 0x25, 0x4e, 0x02, 0xd7, 0x67,
-	0x91, 0xb6, 0x2a, 0xa4, 0x56, 0x05, 0xac, 0x2f, 0x40, 0xe8, 0x2e, 0x54, 0xec, 0xc0, 0xf5, 0xf1,
-	0x89, 0xe7, 0x4e, 0xb4, 0x35, 0x21, 0xab, 0xcc, 0x01, 0x87, 0x9e, 0x3b, 0x41, 0x3b, 0x50, 0x89,
-	0x3d, 0x71, 0x1d, 0xad, 0xb6, 0xab, 0xec, 0x2d, 0x3d, 0x2e, 0x7d, 0xf4, 0x43, 0xab, 0x2c, 0x81,
-	0xa6, 0x83, 0x7e, 0x06, 0x9a, 0x18, 0x18, 0xf1, 0x24, 0x0c, 0x4e, 0x5c, 0xaf, 0x90, 0xa6, 0x75,
-	0xa1, 0xec, 0x8e, 0xc0, 0xf7, 0x25, 0x3a, 0xf3, 0x75, 0x4e, 0xf9, 0xab, 0x73, 0xca, 0x1f, 0xfd,
-	0x1c, 0x2a, 0x8e, 0x6b, 0x53, 0x1c, 0x06, 0x9e, 0xa7, 0xdd, 0xda, 0x55, 0xf6, 0xaa, 0x07, 0x8d,
-	0xac, 0x37, 0xce, 0x54, 0xf2, 0x7e, 0xcb, 0xb5, 0xa9, 0x15, 0x78, 0x9e, 0x55, 0x76, 0xe2, 0x7f,
-	0xe8, 0x3d, 0xa8, 0xc5, 0x16, 0x92, 0x90, 0x9d, 0x73, 0x3d, 0x48, 0x54, 0xf0, 0xaa, 0xb4, 0x8b,
-	0x03, 0x4d, 0x27, 0xa3, 0x12, 0x31, 0xe5, 0x54, 0xb7, 0x73, 0x54, 0x22, 0x98, 0xa6, 0x83, 0x1e,
-	0x43, 0x3d, 0x4f, 0x65, 0x4f, 0x23, 0x16, 0x8c, 0xf1, 0x88, 0x8c, 0x29, 0xe7, 0xd8, 0x10, 0x1c,
-	0x9b, 0x19, 0x47, 0x53, 0xe0, 0x9f, 0x92, 0x31, 0x8d, 0xcb, 0x32, 0xc7, 0x3b, 0x21, 0x51, 0xf4,
-	0x9a, 0x9e, 0x6b, 0x77, 0xe2, 0xb2, 0x4c, 0x99, 0xfa, 0x12, 0xc1, 0x33, 0x3e, 0xf7, 0x35, 0x71,
-	0x1d, 0x6d, 0x53, 0x04, 0x6a, 0xe3, 0xe2, 0x5b, 0x62, 0x3a, 0xb9, 0xfe, 0xbb, 0x95, 0xef, 0xbf,
-	0xfc, 0x42, 0x79, 0x74, 0x44, 0xec, 0x73, 0x7c, 0x4c, 0x18, 0xf3, 0x28, 0xb6, 0xa7, 0x13, 0x7c,
-	0xea, 0xda, 0x2c, 0x08, 0xcf, 0x35, 0x4d, 0xa4, 0x7d, 0x53, 0x12, 0x3c, 0x11, 0xf8, 0xe6, 0x74,
-	0xf2, 0x42, 0x62, 0xf9, 0xfc, 0x97, 0xe3, 0x89, 0x58, 0x48, 0xc9, 0x6b, 0xed, 0xbe, 0x9c, 0xff,
-	0x8e, 0x13, 0xe2, 0x81, 0x00, 0xa3, 0x1d, 0xa8, 0x1e, 0x13, 0x67, 0x44, 0xb1, 0x47, 0x4f, 0xa9,
-	0xa7, 0x6d, 0x0b, 0x2a, 0x10, 0xa0, 0x36, 0x87, 0xa0, 0xef, 0x43, 0x52, 0xa9, 0x78, 0xc2, 0x27,
-	0xed, 0x57, 0x34, 0x0c, 0xb8, 0x4f, 0x75, 0x41, 0x99, 0x5c, 0xcf, 0xbe, 0x6b, 0xbf, 0x7e, 0x46,
-	0xc3, 0xc0, 0x74, 0xd0, 0x8f, 0x60, 0xf3, 0x22, 0x43, 0x18, 0x78, 0x54, 0xbb, 0x2b, 0x42, 0x77,
-	0x7b, 0x86, 0xc5, 0x0a, 0x3c, 0x8a, 0x3e, 0xca, 0x7a, 0xc0, 0x31, 0xf1, 0x53, 0x25, 0x0f, 0x64,
-	0x63, 0x8c, 0x51, 0x4f, 0x88, 0x1f, 0xeb, 0xd8, 0x80, 0x25, 0x46, 0xc3, 0x88, 0x6a, 0xf7, 0x44,
-	0x20, 0xe4, 0x81, 0x5f, 0x1e, 0xd9, 0x42, 0xf1, 0x78, 0xca, 0xa8, 0xa3, 0xed, 0x08, 0x64, 0x55,
-	0xc2, 0x3a, 0x1c, 0x84, 0x3a, 0xb0, 0xc6, 0x42, 0xf7, 0xd4, 0x25, 0x98, 0xf8, 0xd1, 0x1b, 0x1a,
-	0x6a, 0xbb, 0xa2, 0x42, 0xf7, 0x2e, 0xaf, 0xd0, 0xa1, 0x20, 0xd7, 0x05, 0x35, 0x75, 0xac, 0x55,
-	0x96, 0x3b, 0xa3, 0x1f, 0xc0, 0x46, 0x28, 0x27, 0x16, 0xde, 0xd0, 0x8f, 0x5d, 0xcf, 0x95, 0x15,
-	0xfb, 0x50, 0xd8, 0x8d, 0x52, 0x9c, 0x2e, 0x51, 0xa6, 0x53, 0xff, 0x02, 0xca, 0x49, 0xcd, 0xf3,
-	0xf6, 0xc1, 0x6f, 0x09, 0x1e, 0xbb, 0xbe, 0x68, 0xe2, 0x4b, 0xd6, 0x0a, 0x3f, 0x77, 0x5c, 0x3f,
-	0x43, 0x91, 0x33, 0xd1, 0xc0, 0x13, 0x14, 0x39, 0xe3, 0x05, 0x13, 0x0f, 0xd4, 0x0b, 0x02, 0x11,
-	0x9f, 0xea, 0xff, 0x51, 0xa0, 0x56, 0x34, 0x96, 0x27, 0x57, 0x18, 0xc0, 0xa7, 0x87, 0xf4, 0xa1,
-	0x80, 0x04, 0x24, 0x9f, 0x02, 0x19, 0x07, 0xec, 0xfa, 0x0e, 0x3d, 0x8b, 0x1f, 0xb4, 0xaa, 0x84,
-	0x99, 0x1c, 0x84, 0x7e, 0x0a, 0x5b, 0xf2, 0x22, 0x26, 0x6c, 0x11, 0xb6, 0x83, 0x30, 0xa4, 0x36,
-	0x8b, 0x07, 0x86, 0x3b, 0x02, 0xfd, 0x59, 0x82, 0x6d, 0x4a, 0x24, 0xfa, 0x31, 0x6c, 0xce, 0xf2,
-	0x9d, 0xba, 0xf4, 0x0d, 0x75, 0xe2, 0x11, 0x66, 0xa3, 0xc8, 0xf6, 0x42, 0xe0, 0xf8, 0xa5, 0x93,
-	0x5c, 0x71, 0x96, 0xe2, 0x36, 0x28, 0x9f, 0x9b, 0x5b, 0x02, 0x25, 0x7d, 0x94, 0xcd, 0xb0, 0xf1,
-	0x07, 0x05, 0x50, 0x31, 0x6b, 0x62, 0x0e, 0xda, 0x86, 0x72, 0xc4, 0x28, 0x19, 0x27, 0x5e, 0x2f,
-	0x5b, 0x2b, 0xe2, 0x3c, 0xe7, 0xf5, 0x2b, 0x5d, 0x7c, 0xfd, 0xe6, 0xb4, 0xba, 0x85, 0x79, 0xad,
-	0x2e, 0xbb, 0xba, 0x8b, 0x85, 0xd1, 0xe9, 0xeb, 0x15, 0xb9, 0xde, 0xcd, 0x19, 0x9d, 0xd2, 0xd9,
-	0xb3, 0x0e, 0xe5, 0x30, 0xfe, 0x1f, 0xe7, 0x25, 0x3d, 0x7f, 0x9b, 0xf1, 0xaa, 0xf8, 0xc4, 0x2f,
-	0x08, 0x17, 0x73, 0x4f, 0xfc, 0x0e, 0x54, 0xc7, 0xe4, 0x0c, 0x27, 0x23, 0xaa, 0x34, 0x0f, 0xc6,
-	0xe4, 0xac, 0x13, 0x4f, 0x9c, 0x07, 0xd9, 0xfc, 0xba, 0x24, 0xe6, 0x57, 0x6d, 0xde, 0x0d, 0x28,
-	0x4e, 0xa9, 0xb3, 0x23, 0xdd, 0xf2, 0xdb, 0x1a, 0xe9, 0x90, 0x95, 0x96, 0xf4, 0x8a, 0x90, 0xf9,
-	0xa8, 0x68, 0xcc, 0x25, 0x31, 0x4c, 0x36, 0xc4, 0xd5, 0x4f, 0x7b, 0x66, 0x17, 0xcf, 0xae, 0x89,
-	0x1f, 0xc2, 0xad, 0x91, 0x8d, 0x5d, 0xdf, 0x65, 0x2e, 0xe1, 0xb7, 0xf3, 0xcb, 0xc0, 0xf5, 0xc5,
-	0x60, 0x50, 0xb6, 0xd6, 0x47, 0xb6, 0x99, 0xc0, 0xb9, 0xec, 0x79, 0x09, 0xaf, 0xcc, 0x4b, 0xf8,
-	0x07, 0xb0, 0xfe, 0x86, 0x7a, 0x76, 0x30, 0xa6, 0x38, 0xfe, 0x38, 0x23, 0x9e, 0xfd, 0x8a, 0x55,
-	0x8b, 0xc1, 0x71, 0xd3, 0x68, 0xfc, 0x26, 0xdb, 0x43, 0x55, 0x28, 0xd8, 0xa7, 0xbe, 0xc3, 0x57,
-	0x2e, 0xb3, 0xfb, 0x42, 0x6f, 0x9b, 0xad, 0x74, 0x19, 0x1b, 0xbe, 0xec, 0x1b, 0xaa, 0x82, 0xee,
-	0xc0, 0x2d, 0xbd, 0xd9, 0xec, 0x1d, 0x75, 0x87, 0x62, 0x43, 0x3c, 0xec, 0x1d, 0x75, 0x5b, 0x6a,
-	0x09, 0xd5, 0x00, 0xf4, 0xe6, 0x33, 0xcc, 0x77, 0x2a, 0x83, 0xef, 0x9f, 0xf7, 0x61, 0x9b, 0xef,
-	0x68, 0xd8, 0xec, 0xe2, 0x61, 0xaf, 0x87, 0x3b, 0x7a, 0xf7, 0x65, 0x22, 0x69, 0xa0, 0x2e, 0xa2,
-	0x2d, 0xb8, 0x9d, 0xad, 0x81, 0xd8, 0xf8, 0xa2, 0x69, 0x18, 0x2d, 0xa3, 0xa5, 0x2e, 0x71, 0x53,
-	0x12, 0x85, 0x87, 0x47, 0xed, 0xb6, 0xba, 0xcc, 0x97, 0xdf, 0x3c, 0x04, 0xf7, 0x5e, 0x18, 0xd6,
-	0x61, 0xbb, 0xf7, 0xb9, 0xd1, 0x52, 0x57, 0xd0, 0x26, 0x20, 0xa9, 0x12, 0x0f, 0x7b, 0x58, 0x6f,
-	0xb5, 0xe4, 0x62, 0x58, 0xe6, 0xeb, 0x5d, 0xde, 0x6e, 0xdc, 0x32, 0x07, 0xfa, 0x13, 0x6e, 0x59,
-	0x05, 0x3d, 0x80, 0x7a, 0xdf, 0x32, 0x5f, 0x70, 0xed, 0xcd, 0x67, 0xfa, 0x50, 0xee, 0xa5, 0x46,
-	0x62, 0x39, 0x5c, 0xc0, 0x17, 0xd7, 0xe7, 0x2a, 0x7a, 0x17, 0x76, 0xe6, 0xf1, 0xf3, 0x55, 0x3d,
-	0x11, 0xb2, 0xca, 0xfd, 0x2b, 0x10, 0xf1, 0xdd, 0xd3, 0x68, 0xa9, 0x6b, 0x7c, 0x5b, 0x17, 0x71,
-	0x11, 0xdb, 0x75, 0x5b, 0xba, 0x51, 0x6b, 0x84, 0xf2, 0xf3, 0xd3, 0x4c, 0x81, 0x1e, 0x4e, 0x3d,
-	0xef, 0x68, 0xc2, 0x57, 0xaa, 0x39, 0x73, 0x7f, 0xe1, 0x2e, 0x1d, 0xcc, 0xae, 0x7a, 0xd7, 0x5f,
-	0x95, 0xc6, 0x3f, 0x15, 0x78, 0x90, 0xe0, 0x7b, 0xec, 0x15, 0x0d, 0x79, 0x99, 0x51, 0xe7, 0xea,
-	0x55, 0x65, 0xf9, 0xaa, 0x21, 0x7d, 0x4e, 0x9b, 0xca, 0x37, 0xb9, 0x85, 0x62, 0x93, 0x9b, 0x53,
-	0xd0, 0x8b, 0x57, 0x77, 0xb0, 0xa5, 0x42, 0x07, 0xfb, 0x4a, 0x81, 0x7b, 0x05, 0xfb, 0xdb, 0xf4,
-	0x84, 0xfd, 0x0f, 0xd6, 0xe7, 0x4d, 0x2b, 0x5d, 0x6b, 0xda, 0xbc, 0xe6, 0xda, 0xf8, 0x57, 0x29,
-	0x6b, 0xa2, 0x39, 0xcd, 0x32, 0xd2, 0xdf, 0x2e, 0x73, 0xef, 0x41, 0xcd, 0xa3, 0x27, 0x0c, 0x27,
-	0xa6, 0xc8, 0x04, 0x2e, 0x5b, 0xab, 0x1c, 0x3a, 0x90, 0xf6, 0x44, 0xe8, 0x25, 0xd4, 0xbe, 0x14,
-	0xd9, 0x49, 0xdb, 0xe5, 0xc2, 0xec, 0x46, 0x7f, 0x85, 0x0d, 0xfb, 0x32, 0xb3, 0x71, 0x01, 0xac,
-	0x7d, 0x99, 0x3b, 0x45, 0xf5, 0xdf, 0x29, 0xb0, 0x9a, 0xc7, 0x7f, 0xc7, 0xef, 0xd2, 0x6e, 0x56,
-	0x94, 0xf1, 0x77, 0x96, 0x9c, 0x53, 0x6d, 0x37, 0x62, 0x8d, 0xbf, 0x97, 0xe0, 0xfd, 0xab, 0x49,
-	0xd2, 0x07, 0x6c, 0x08, 0xe5, 0x58, 0x6b, 0xa4, 0x29, 0x22, 0x60, 0x1f, 0x17, 0x03, 0x76, 0x35,
-	0xff, 0x7e, 0xbe, 0xa1, 0xa7, 0x92, 0xea, 0x7f, 0x53, 0xa0, 0x7a, 0xd5, 0x97, 0x06, 0xe5, 0xe2,
-	0x53, 0xb8, 0x03, 0x55, 0x7f, 0x3a, 0xc6, 0xd9, 0x1d, 0x15, 0x6f, 0x9d, 0x3f, 0x1d, 0x77, 0x2e,
-	0x79, 0xb7, 0x16, 0xde, 0xda, 0xa7, 0x88, 0x8f, 0xb3, 0x4f, 0x24, 0x5c, 0xc6, 0x53, 0xca, 0x78,
-	0x06, 0xb8, 0x9b, 0xd7, 0x94, 0x66, 0xe3, 0xf7, 0x33, 0xd5, 0x9d, 0x63, 0x4d, 0x23, 0x7c, 0x4d,
-	0x75, 0x1f, 0xce, 0xf6, 0xa5, 0x47, 0x17, 0x0b, 0x76, 0x8e, 0xd8, 0xd9, 0x8f, 0x4f, 0xf5, 0x5f,
-	0x29, 0xe9, 0xe7, 0xa3, 0xef, 0xb6, 0x3c, 0xff, 0xac, 0xc8, 0xcf, 0x33, 0x39, 0xe3, 0xa5, 0x5d,
-	0x4d, 0xbe, 0x82, 0x7e, 0x9b, 0x52, 0x98, 0xcd, 0x74, 0xe9, 0xad, 0x65, 0xfa, 0x1b, 0x05, 0x1a,
-	0x97, 0xdb, 0x66, 0x5d, 0x36, 0xb9, 0xfd, 0x3f, 0x6d, 0xe4, 0xca, 0x65, 0x4e, 0xb1, 0xd8, 0xd9,
-	0xe3, 0xe0, 0x57, 0xc7, 0x99, 0x9d, 0x8d, 0x7f, 0x94, 0x8a, 0x21, 0x96, 0x82, 0x22, 0xc3, 0x27,
-	0xc7, 0x1e, 0x75, 0xd0, 0x23, 0x40, 0x54, 0xfc, 0xc5, 0xc4, 0xf3, 0x70, 0x28, 0x91, 0xc2, 0x89,
-	0xb2, 0xa5, 0x4a, 0x8c, 0xee, 0x79, 0x31, 0x13, 0xea, 0xc3, 0xba, 0x84, 0x39, 0x29, 0xa9, 0x2c,
-	0xc4, 0x0f, 0x2e, 0x16, 0x62, 0x51, 0xd1, 0xbe, 0x3c, 0x5a, 0xb5, 0x98, 0x3f, 0xc6, 0xd6, 0xff,
-	0xa4, 0xf0, 0xb1, 0x89, 0xff, 0x17, 0xce, 0xb8, 0x3e, 0xf6, 0x08, 0x73, 0xd9, 0xd4, 0x91, 0x91,
-	0x2c, 0x59, 0xd5, 0xb1, 0xeb, 0xb7, 0x63, 0x90, 0x20, 0x21, 0x67, 0x19, 0x49, 0x29, 0x26, 0x21,
-	0x67, 0x29, 0xc9, 0xbb, 0xb0, 0x26, 0xa4, 0x04, 0xfe, 0x48, 0xd2, 0x2c, 0x08, 0x1a, 0x2e, 0xba,
-	0x9d, 0xc0, 0x04, 0x11, 0x97, 0x93, 0x12, 0x2d, 0xc6, 0x44, 0xe4, 0x2c, 0x25, 0x7a, 0xb2, 0xf4,
-	0x4c, 0xf9, 0x4a, 0x79, 0xe7, 0xbf, 0x01, 0x00, 0x00, 0xff, 0xff, 0x71, 0x32, 0x48, 0x52, 0x9c,
+	0x39, 0xa0, 0x5e, 0xe4, 0x47, 0x89, 0x82, 0x57, 0xb2, 0x04, 0xd1, 0xb1, 0x25, 0xd3, 0x69, 0xa2,
+	0xc9, 0x38, 0x6a, 0xab, 0xbe, 0x12, 0x5f, 0x3a, 0x30, 0x09, 0xd9, 0x88, 0xf9, 0x50, 0x40, 0xca,
+	0x89, 0x4f, 0x3b, 0x2b, 0x60, 0x45, 0x21, 0x06, 0x01, 0x16, 0x58, 0xca, 0xd2, 0x2d, 0xd3, 0x43,
+	0xa7, 0x6d, 0x7a, 0x69, 0x0f, 0x9d, 0xf6, 0xd2, 0x3f, 0xd0, 0xde, 0x3b, 0x3d, 0xf4, 0x96, 0x1f,
+	0xd0, 0x1f, 0xd2, 0x53, 0x7f, 0x41, 0x67, 0x77, 0xf1, 0xa4, 0x28, 0x29, 0x1d, 0x79, 0x9a, 0x0b,
+	0x87, 0xfb, 0xbd, 0x5f, 0xfb, 0xed, 0xf7, 0x01, 0x1e, 0x3a, 0x01, 0x23, 0x78, 0x68, 0x8f, 0x68,
+	0x14, 0x91, 0x21, 0x8d, 0xb0, 0xed, 0xb9, 0xd4, 0x67, 0xd8, 0x3e, 0x25, 0x6c, 0x6f, 0x1c, 0x06,
+	0x2c, 0x40, 0xf3, 0x9c, 0xa4, 0xbe, 0x29, 0x08, 0xa3, 0x53, 0x12, 0x52, 0x07, 0x53, 0x7f, 0x32,
+	0x8a, 0x24, 0xba, 0xf1, 0x5b, 0x05, 0xb6, 0x9b, 0x9d, 0x68, 0xd8, 0x14, 0x8c, 0x83, 0xe0, 0x59,
+	0xf3, 0x30, 0x74, 0xcf, 0x08, 0xa3, 0xcd, 0x53, 0xc2, 0x4c, 0xff, 0xcc, 0x65, 0x14, 0x7d, 0x02,
+	0x5b, 0x63, 0x09, 0x14, 0x82, 0xf9, 0x8f, 0xef, 0x53, 0x0f, 0xfb, 0x64, 0x44, 0x35, 0x65, 0x47,
+	0xd9, 0xad, 0x58, 0x1b, 0xe3, 0x8c, 0xab, 0x29, 0xd1, 0x5d, 0x32, 0xa2, 0xe8, 0x31, 0x20, 0x57,
+	0x08, 0x71, 0x30, 0xb1, 0xed, 0x60, 0xe2, 0x33, 0xec, 0x3a, 0x5a, 0x69, 0x47, 0xd9, 0x5d, 0xb1,
+	0xd4, 0x18, 0xa3, 0x4b, 0x84, 0xe9, 0x34, 0x7e, 0xa9, 0xc0, 0xfd, 0x2b, 0x8d, 0x79, 0xe1, 0xda,
+	0xaf, 0x6f, 0x63, 0xca, 0xfb, 0xb0, 0xfa, 0xda, 0xb5, 0x5f, 0x5f, 0xb6, 0x63, 0x85, 0x83, 0x33,
+	0x23, 0xbe, 0x56, 0x60, 0xe7, 0x4a, 0x23, 0x0e, 0xc3, 0x60, 0x14, 0xdc, 0x3a, 0x24, 0x63, 0x29,
+	0x65, 0x46, 0x48, 0x62, 0x4c, 0x66, 0xcd, 0xaf, 0xaf, 0xcb, 0x4f, 0x8b, 0xde, 0xd6, 0x98, 0x0f,
+	0xe1, 0x8e, 0x43, 0x67, 0xdb, 0xb2, 0x2a, 0x11, 0x99, 0x29, 0xff, 0x9e, 0x87, 0x87, 0xdc, 0x94,
+	0x67, 0xcd, 0x41, 0x20, 0xcd, 0xc9, 0x99, 0x62, 0xd1, 0x68, 0x1c, 0xf8, 0xd1, 0xad, 0x8c, 0xe9,
+	0xc1, 0x62, 0x48, 0xa3, 0x89, 0xc7, 0x84, 0x05, 0xb5, 0xfd, 0xbd, 0x3d, 0x5e, 0xb5, 0x7b, 0x37,
+	0xea, 0xdc, 0xb3, 0x04, 0xd7, 0x93, 0xa5, 0xfe, 0x51, 0xb3, 0x69, 0xf4, 0xfb, 0x56, 0x2c, 0x06,
+	0xd5, 0xa1, 0x3c, 0x89, 0x68, 0x28, 0x54, 0xcf, 0x09, 0xd5, 0xe9, 0xb9, 0xf1, 0x97, 0x39, 0x58,
+	0x94, 0x7c, 0xa8, 0x0a, 0x09, 0xa7, 0xfa, 0x0e, 0xda, 0x82, 0xbb, 0x07, 0xba, 0xd9, 0x3e, 0xb2,
+	0x0c, 0xdc, 0xb4, 0x0c, 0x7d, 0x60, 0xf6, 0xba, 0xb8, 0xdd, 0x6b, 0xbe, 0x50, 0x15, 0x74, 0x0f,
+	0x36, 0x13, 0x54, 0xff, 0xb3, 0x36, 0x1e, 0x58, 0x7a, 0xb7, 0xaf, 0x37, 0x39, 0x85, 0x5a, 0x42,
+	0xeb, 0xa0, 0xa6, 0xc8, 0x56, 0x0f, 0xb7, 0x7b, 0x7a, 0x4b, 0x9d, 0xcb, 0x4b, 0xeb, 0xf6, 0xf0,
+	0xa1, 0x61, 0x75, 0xcc, 0x7e, 0x9f, 0x33, 0xcc, 0xa3, 0x3a, 0x6c, 0x24, 0x28, 0xbd, 0x6d, 0x19,
+	0x7a, 0xeb, 0x15, 0xee, 0x18, 0x9d, 0xa7, 0x86, 0xa5, 0x2e, 0x20, 0x0d, 0xd6, 0x33, 0xb6, 0x01,
+	0xd6, 0x13, 0xcc, 0x12, 0xda, 0x86, 0x7b, 0x39, 0x81, 0x96, 0xd1, 0xd1, 0xcd, 0xae, 0xd9, 0x7d,
+	0x86, 0xf5, 0x56, 0xc7, 0xec, 0xf6, 0xd5, 0x32, 0x5a, 0x83, 0xd5, 0x3c, 0x41, 0xaf, 0xd7, 0x51,
+	0x2b, 0xe8, 0x21, 0xdc, 0xbf, 0xe4, 0x94, 0xa5, 0x0f, 0x0c, 0xdc, 0x36, 0x3b, 0xe6, 0xc0, 0x68,
+	0xa9, 0x80, 0x76, 0xe0, 0xdd, 0x84, 0xe4, 0xa8, 0xfb, 0xa2, 0xdb, 0xfb, 0xbc, 0x8b, 0x9b, 0xcf,
+	0xf5, 0x6e, 0xd7, 0x68, 0xe3, 0xae, 0xde, 0x31, 0xd4, 0x6a, 0xde, 0xa8, 0x84, 0xe2, 0xa8, 0x6f,
+	0x58, 0xea, 0x72, 0xde, 0xcb, 0x04, 0x63, 0x58, 0x56, 0xcf, 0x52, 0x57, 0xd0, 0x7d, 0xd8, 0x4a,
+	0x35, 0xeb, 0x5d, 0xee, 0xcc, 0x0b, 0xb3, 0xf9, 0x42, 0x9a, 0xab, 0xd6, 0xf2, 0x9c, 0x49, 0x10,
+	0x24, 0x6a, 0xb5, 0x41, 0xe0, 0xbd, 0x6b, 0x1a, 0xd3, 0x49, 0x60, 0xd1, 0x5f, 0x4c, 0x68, 0xc4,
+	0x6e, 0x51, 0x70, 0x8d, 0x6f, 0x4a, 0xf0, 0xbd, 0x2b, 0xab, 0x4b, 0xea, 0xb8, 0x7d, 0x55, 0xb7,
+	0x61, 0x69, 0x44, 0x47, 0xc7, 0x34, 0x8c, 0xb4, 0xd2, 0xce, 0xdc, 0x6e, 0x75, 0x7f, 0xff, 0x86,
+	0xb2, 0xce, 0x2b, 0xde, 0xeb, 0x08, 0x56, 0x2b, 0x11, 0x81, 0x34, 0x58, 0xb2, 0x43, 0x4a, 0x58,
+	0x10, 0x8a, 0x8a, 0x5e, 0xb1, 0x92, 0x23, 0x7a, 0x04, 0x2b, 0xe2, 0xaf, 0x1b, 0xf8, 0xd8, 0x21,
+	0x8c, 0x6a, 0xf3, 0x02, 0xbf, 0x9c, 0x00, 0x5b, 0x84, 0xd1, 0x7a, 0x1f, 0x16, 0xa5, 0x44, 0x74,
+	0x1f, 0x20, 0x77, 0xe5, 0x15, 0x41, 0x5b, 0x21, 0xc9, 0x65, 0x47, 0x08, 0xe6, 0x85, 0x6f, 0x25,
+	0xe1, 0x9b, 0xf8, 0x8f, 0x36, 0x60, 0x31, 0x62, 0x84, 0x4d, 0xa2, 0x58, 0x75, 0x7c, 0x6a, 0xfc,
+	0x51, 0x81, 0x4d, 0xee, 0x4d, 0xab, 0x37, 0xd0, 0x3f, 0x0d, 0x5c, 0x3f, 0x17, 0x01, 0xf4, 0x10,
+	0x96, 0x0b, 0xb1, 0x92, 0xf2, 0xaa, 0x76, 0x2e, 0x40, 0x5f, 0x64, 0x24, 0xec, 0x62, 0x2c, 0xed,
+	0xae, 0xed, 0xdf, 0x93, 0x51, 0xe2, 0x32, 0x73, 0xf2, 0x06, 0x17, 0x63, 0x8a, 0xd9, 0x13, 0x2d,
+	0x06, 0xa7, 0x20, 0x8b, 0x0e, 0xdd, 0xc0, 0x27, 0x5e, 0x2a, 0x99, 0x43, 0x1b, 0x9f, 0x80, 0x96,
+	0xd8, 0xd5, 0xa6, 0xe4, 0x2c, 0x9f, 0x1a, 0xee, 0x7f, 0xa2, 0x35, 0xf6, 0x7f, 0xde, 0xaa, 0xc4,
+	0x10, 0xd3, 0x69, 0xd8, 0x50, 0x97, 0x09, 0x92, 0x8d, 0x66, 0x1c, 0x84, 0xec, 0x70, 0x72, 0xec,
+	0xb9, 0x76, 0x7f, 0x4c, 0x46, 0x37, 0x30, 0xf3, 0xa7, 0x26, 0x41, 0xf3, 0x7e, 0x93, 0x7b, 0x6a,
+	0x62, 0xf0, 0x51, 0x44, 0x43, 0xd3, 0x69, 0x98, 0xb0, 0x95, 0xd8, 0x27, 0xab, 0xc0, 0x1c, 0xfa,
+	0x41, 0x48, 0x1d, 0x8e, 0x16, 0x4f, 0xa7, 0x3c, 0xe2, 0x4b, 0x89, 0x52, 0x63, 0x4c, 0xd6, 0x9c,
+	0xff, 0x51, 0x83, 0xb5, 0x54, 0xd6, 0x29, 0x61, 0x1d, 0x39, 0x11, 0xdc, 0x94, 0xe6, 0xa2, 0x23,
+	0xa5, 0x69, 0x47, 0x1e, 0xc2, 0xf2, 0x98, 0x86, 0x51, 0xe0, 0x13, 0x9c, 0x6b, 0xa2, 0xd5, 0x18,
+	0x26, 0xb2, 0x87, 0x60, 0x9e, 0xd1, 0x73, 0x26, 0xb2, 0x56, 0xb1, 0xc4, 0x7f, 0xf4, 0x2e, 0x54,
+	0x98, 0x3b, 0xa2, 0x11, 0x23, 0xa3, 0xb1, 0xb6, 0x20, 0x75, 0xa6, 0x00, 0x7e, 0x97, 0xa2, 0xc9,
+	0x70, 0x48, 0x23, 0x86, 0xe5, 0x04, 0x90, 0xf7, 0x6f, 0x51, 0x50, 0x6f, 0xc4, 0x04, 0x72, 0x00,
+	0x49, 0xbd, 0x44, 0x7b, 0xb0, 0x36, 0xc5, 0x2a, 0xcc, 0x5a, 0x12, 0xba, 0xef, 0x14, 0x98, 0x84,
+	0x71, 0x4f, 0xe1, 0xc1, 0x09, 0xf1, 0x19, 0x89, 0x2e, 0xb0, 0x13, 0x92, 0x13, 0x86, 0x83, 0x37,
+	0x3e, 0x0d, 0xf3, 0xfa, 0xca, 0x42, 0x5f, 0x3d, 0xa6, 0x6a, 0x71, 0xa2, 0x1e, 0xa7, 0xc9, 0x74,
+	0xb6, 0x60, 0xbb, 0x28, 0x63, 0xec, 0x91, 0x8b, 0xa2, 0x90, 0x8a, 0x10, 0x72, 0x2f, 0x2f, 0xe4,
+	0x50, 0x10, 0x65, 0x52, 0xb6, 0xa0, 0x4c, 0xcf, 0xa8, 0x24, 0x07, 0x79, 0x71, 0xc5, 0xd9, 0x74,
+	0xd0, 0x4f, 0x60, 0x73, 0xca, 0x29, 0x16, 0x60, 0x2f, 0x38, 0x3e, 0xbe, 0xd0, 0xaa, 0x3b, 0xca,
+	0x6e, 0xd9, 0x5a, 0x2f, 0x38, 0x36, 0x08, 0xda, 0x1c, 0xc7, 0x73, 0x23, 0x25, 0x8e, 0x03, 0xd7,
+	0x67, 0x91, 0xb6, 0x2c, 0xa4, 0x56, 0x05, 0xec, 0x50, 0x80, 0xd0, 0x3d, 0xa8, 0xd8, 0x81, 0xeb,
+	0xe3, 0x13, 0xcf, 0x1d, 0x6b, 0x2b, 0x42, 0x56, 0x99, 0x03, 0x0e, 0x3c, 0x77, 0x8c, 0xb6, 0xa1,
+	0x12, 0x7b, 0xe2, 0x3a, 0x5a, 0x6d, 0x47, 0xd9, 0x5d, 0x78, 0x52, 0xfa, 0xe8, 0x87, 0x56, 0x59,
+	0x02, 0x4d, 0x07, 0xfd, 0x0c, 0x34, 0x31, 0x30, 0xe2, 0x71, 0x18, 0x9c, 0xb8, 0x5e, 0x21, 0x4d,
+	0xab, 0x42, 0xd9, 0x5d, 0x81, 0x3f, 0x94, 0xe8, 0xcc, 0xd7, 0x19, 0xe5, 0xaf, 0xce, 0x28, 0x7f,
+	0xf4, 0x73, 0xa8, 0x38, 0xae, 0x4d, 0x71, 0x18, 0x78, 0x9e, 0x76, 0x67, 0x47, 0xd9, 0xad, 0xee,
+	0x37, 0xb2, 0xde, 0x38, 0x55, 0xc9, 0x7b, 0x2d, 0xd7, 0xa6, 0x56, 0xe0, 0x79, 0x56, 0xd9, 0x89,
+	0xff, 0xa1, 0xf7, 0xa0, 0x16, 0x5b, 0x48, 0x42, 0x76, 0xc1, 0xf5, 0x20, 0x51, 0xc1, 0xcb, 0xd2,
+	0x2e, 0x0e, 0x34, 0x9d, 0x8c, 0x4a, 0xc4, 0x94, 0x53, 0xad, 0xe5, 0xa8, 0x44, 0x30, 0x4d, 0x07,
+	0x3d, 0x81, 0x7a, 0x9e, 0xca, 0x9e, 0x44, 0x2c, 0x18, 0xe1, 0x21, 0x19, 0x51, 0xce, 0xb1, 0x2e,
+	0x38, 0x36, 0x32, 0x8e, 0xa6, 0xc0, 0x3f, 0x23, 0x23, 0x1a, 0x97, 0x65, 0x8e, 0x77, 0x4c, 0xa2,
+	0xe8, 0x35, 0xbd, 0xd0, 0xee, 0xc6, 0x65, 0x99, 0x32, 0x1d, 0x4a, 0x04, 0xcf, 0xf8, 0xcc, 0xd7,
+	0xc4, 0x75, 0xb4, 0x0d, 0x11, 0xa8, 0xf5, 0xcb, 0x6f, 0x89, 0xe9, 0xe4, 0xfa, 0xef, 0x66, 0xbe,
+	0xff, 0xf2, 0x0b, 0xe5, 0xd1, 0x21, 0xb1, 0x2f, 0xf0, 0x31, 0x61, 0xcc, 0xa3, 0xd8, 0x9e, 0x8c,
+	0xf1, 0x99, 0x6b, 0xb3, 0x20, 0xbc, 0xd0, 0x34, 0x91, 0xf6, 0x0d, 0x49, 0xf0, 0x54, 0xe0, 0x9b,
+	0x93, 0xf1, 0x4b, 0x89, 0xe5, 0xf3, 0x5f, 0x8e, 0x27, 0x62, 0x21, 0x25, 0xaf, 0xb5, 0xfb, 0x72,
+	0xfe, 0x3b, 0x4e, 0x88, 0xfb, 0x02, 0x8c, 0xb6, 0xa1, 0x7a, 0x4c, 0x9c, 0x21, 0xc5, 0x1e, 0x3d,
+	0xa3, 0x9e, 0xb6, 0x25, 0xa8, 0x40, 0x80, 0xda, 0x1c, 0x82, 0xbe, 0x0f, 0x49, 0xa5, 0xe2, 0x31,
+	0x9f, 0xb4, 0x4f, 0x69, 0x18, 0x70, 0x9f, 0xea, 0x82, 0x32, 0xb9, 0x9e, 0x87, 0xae, 0xfd, 0xfa,
+	0x39, 0x0d, 0x03, 0xd3, 0x41, 0x3f, 0x82, 0x8d, 0xcb, 0x0c, 0x61, 0xe0, 0x51, 0xed, 0x9e, 0x08,
+	0xdd, 0xda, 0x14, 0x8b, 0x15, 0x78, 0x14, 0x7d, 0x94, 0xf5, 0x80, 0x63, 0xe2, 0xa7, 0x4a, 0x1e,
+	0xc8, 0xc6, 0x18, 0xa3, 0x9e, 0x12, 0x3f, 0xd6, 0xd1, 0x81, 0x15, 0x16, 0xba, 0x67, 0x2e, 0xc1,
+	0xc4, 0x8f, 0xde, 0xd0, 0x50, 0xdb, 0x11, 0x85, 0xb6, 0x7b, 0x75, 0xa1, 0x0d, 0x04, 0xb9, 0x2e,
+	0xa8, 0xa9, 0x63, 0x2d, 0xb3, 0xdc, 0x19, 0xfd, 0x00, 0xd6, 0x43, 0x39, 0x78, 0xf0, 0xbe, 0x7c,
+	0xec, 0x7a, 0xae, 0x2c, 0xbc, 0x87, 0x42, 0x3d, 0x4a, 0x71, 0xba, 0x44, 0xa5, 0x2d, 0x96, 0xe1,
+	0x13, 0x8f, 0x0c, 0x23, 0xad, 0x21, 0xbb, 0x21, 0x87, 0x1c, 0x70, 0x00, 0xda, 0x87, 0xbb, 0x11,
+	0x23, 0x21, 0x17, 0x77, 0xe2, 0xfa, 0x8e, 0xeb, 0x0f, 0xf1, 0x88, 0x30, 0xfb, 0x54, 0x7b, 0x24,
+	0x12, 0xb7, 0x16, 0x23, 0x0f, 0x24, 0xae, 0xc3, 0x51, 0xf5, 0x2f, 0xa0, 0x9c, 0xdc, 0x06, 0xde,
+	0x58, 0xf8, 0xfd, 0xc1, 0x23, 0xd7, 0x17, 0xed, 0x7d, 0xc1, 0x5a, 0xe2, 0xe7, 0x8e, 0xeb, 0x67,
+	0x28, 0x72, 0x2e, 0x5a, 0x7b, 0x82, 0x22, 0xe7, 0xbc, 0x94, 0xe2, 0x51, 0x7b, 0x4e, 0x20, 0xe2,
+	0x53, 0xfd, 0x3f, 0x0a, 0xd4, 0x8a, 0xfe, 0xf3, 0xb4, 0x0b, 0x9f, 0xf8, 0x5c, 0x91, 0x3e, 0x21,
+	0x90, 0x80, 0xe4, 0x23, 0x21, 0x43, 0x8b, 0x5d, 0xdf, 0xa1, 0xe7, 0xf1, 0x53, 0x57, 0x95, 0x30,
+	0x93, 0x83, 0xd0, 0x4f, 0x61, 0x53, 0x5e, 0xd1, 0x84, 0x2d, 0xc2, 0x76, 0x10, 0x86, 0xd4, 0x66,
+	0xf1, 0x28, 0x71, 0x57, 0xa0, 0x3f, 0x4b, 0xb0, 0x4d, 0x89, 0x44, 0x3f, 0x86, 0x8d, 0x69, 0xbe,
+	0x33, 0x97, 0xbe, 0xa1, 0x4e, 0x3c, 0xdc, 0xac, 0x17, 0xd9, 0x5e, 0x0a, 0x1c, 0xbf, 0x8e, 0x92,
+	0x2b, 0x4e, 0x7c, 0xdc, 0x20, 0xe5, 0x43, 0x74, 0x47, 0xa0, 0xa4, 0x8f, 0xb2, 0x4d, 0x36, 0xfe,
+	0xa0, 0x00, 0x2a, 0x16, 0x82, 0x98, 0x90, 0xb6, 0xa0, 0x1c, 0x31, 0x4a, 0x46, 0x89, 0xd7, 0x8b,
+	0xd6, 0x92, 0x38, 0xcf, 0x78, 0x17, 0x4b, 0x97, 0xdf, 0xc5, 0x19, 0x4d, 0x70, 0x6e, 0x56, 0x13,
+	0xcc, 0x2e, 0xf5, 0x7c, 0x61, 0xa8, 0xfa, 0x7a, 0x49, 0x2e, 0x7e, 0x33, 0x86, 0xaa, 0x74, 0x2a,
+	0xad, 0x43, 0x39, 0x8c, 0xff, 0xc7, 0x79, 0x49, 0xcf, 0xdf, 0x66, 0xf0, 0x2a, 0x3e, 0xfe, 0x73,
+	0xc2, 0xc5, 0xdc, 0xe3, 0xbf, 0x0d, 0xd5, 0x11, 0x39, 0xc7, 0xc9, 0xf0, 0x2a, 0xcd, 0x83, 0x11,
+	0x39, 0xef, 0xc4, 0xb3, 0xe8, 0x7e, 0x36, 0xd9, 0x2e, 0x88, 0xc9, 0x56, 0x9b, 0x75, 0xa9, 0x8a,
+	0xf3, 0xeb, 0xf4, 0xb0, 0xb7, 0xf8, 0xb6, 0x86, 0x3d, 0x64, 0xa5, 0x25, 0xbd, 0x24, 0x64, 0x3e,
+	0x2e, 0x1a, 0x73, 0x45, 0x0c, 0x93, 0xdd, 0x71, 0xf9, 0xd3, 0x9e, 0xd9, 0xc5, 0xd3, 0x0b, 0xe4,
+	0x87, 0x70, 0x67, 0x68, 0x63, 0xd7, 0x77, 0x99, 0x4b, 0xf8, 0x0d, 0xfd, 0x32, 0x70, 0x7d, 0x31,
+	0x32, 0x94, 0xad, 0xd5, 0xa1, 0x6d, 0x26, 0x70, 0x2e, 0x7b, 0x56, 0xc2, 0x2b, 0xb3, 0x12, 0xfe,
+	0x01, 0xac, 0xbe, 0xa1, 0x9e, 0x1d, 0x8c, 0x28, 0x8e, 0x3f, 0xdb, 0x88, 0x81, 0xa0, 0x62, 0xd5,
+	0x62, 0x70, 0xdc, 0x87, 0x1a, 0xbf, 0xc9, 0x36, 0x54, 0x15, 0x0a, 0xf6, 0xa9, 0xef, 0xf0, 0x65,
+	0xcc, 0xec, 0xbe, 0xd4, 0xdb, 0x66, 0x2b, 0x5d, 0xd3, 0x06, 0xaf, 0x0e, 0x0d, 0x55, 0x41, 0x77,
+	0xe1, 0x8e, 0xde, 0x6c, 0xf6, 0x8e, 0xba, 0x03, 0xb1, 0x3b, 0x1e, 0xf4, 0x8e, 0xba, 0x2d, 0xb5,
+	0x84, 0x6a, 0x00, 0x7a, 0xf3, 0x39, 0xe6, 0xdb, 0x96, 0xc1, 0x37, 0xd3, 0xfb, 0xb0, 0xc5, 0xb7,
+	0x37, 0x6c, 0x76, 0xf1, 0xa0, 0xd7, 0xc3, 0x1d, 0xbd, 0xfb, 0x2a, 0x91, 0xd4, 0x57, 0xe7, 0xd1,
+	0x26, 0xac, 0x65, 0x0b, 0x22, 0x36, 0xbe, 0x68, 0x1a, 0x46, 0xcb, 0x68, 0xa9, 0x0b, 0xdc, 0x94,
+	0x44, 0xe1, 0xc1, 0x51, 0xbb, 0xad, 0x2e, 0xf2, 0xb5, 0x38, 0x0f, 0xc1, 0xbd, 0x97, 0x86, 0x75,
+	0xd0, 0xee, 0x7d, 0x6e, 0xb4, 0xd4, 0x25, 0xb4, 0x01, 0x48, 0xaa, 0xc4, 0x83, 0x1e, 0xd6, 0x5b,
+	0x2d, 0xb9, 0x32, 0x96, 0xf9, 0xe2, 0x97, 0xb7, 0x1b, 0xb7, 0xcc, 0xbe, 0xfe, 0x94, 0x5b, 0x56,
+	0x41, 0x0f, 0xa0, 0x7e, 0x68, 0x99, 0x2f, 0xb9, 0xf6, 0xe6, 0x73, 0x7d, 0x20, 0x37, 0x56, 0x23,
+	0xb1, 0x1c, 0x2e, 0xe1, 0x8b, 0x8b, 0x75, 0x15, 0x3d, 0x82, 0xed, 0x59, 0xfc, 0x7c, 0x89, 0x4f,
+	0x84, 0x2c, 0x73, 0xff, 0x0a, 0x44, 0x7c, 0x2b, 0x35, 0x5a, 0xea, 0x0a, 0xdf, 0xe3, 0x45, 0x5c,
+	0xc4, 0xde, 0xdd, 0x96, 0x6e, 0xd4, 0x1a, 0xa1, 0xfc, 0x30, 0x35, 0x55, 0xa0, 0x07, 0x13, 0xcf,
+	0x3b, 0x1a, 0xf3, 0x65, 0x6b, 0xc6, 0x46, 0x50, 0xb8, 0x4b, 0xfb, 0xd3, 0x4b, 0xe0, 0xcd, 0x57,
+	0xa5, 0xf1, 0x4f, 0x05, 0x1e, 0x24, 0xf8, 0x1e, 0x3b, 0xa5, 0x21, 0x2f, 0x33, 0xea, 0x5c, 0xbf,
+	0xc4, 0x2c, 0x5e, 0x37, 0xbe, 0xcf, 0x68, 0x53, 0xf9, 0x26, 0x37, 0x57, 0x6c, 0x72, 0x33, 0x0a,
+	0x7a, 0xfe, 0xfa, 0x0e, 0xb6, 0x50, 0xe8, 0x60, 0x5f, 0x29, 0xf0, 0x6e, 0xc1, 0xfe, 0x36, 0x3d,
+	0x61, 0xff, 0x83, 0xf5, 0x79, 0xd3, 0x4a, 0x37, 0x9a, 0x36, 0xab, 0xb9, 0x36, 0xfe, 0x55, 0xca,
+	0x9a, 0x68, 0x4e, 0xb3, 0x8c, 0xf4, 0xb7, 0xcb, 0xdc, 0x7b, 0x50, 0xf3, 0xe8, 0x09, 0xc3, 0x89,
+	0x29, 0x32, 0x81, 0x8b, 0xd6, 0x32, 0x87, 0xf6, 0xa5, 0x3d, 0x11, 0x7a, 0x05, 0xb5, 0x2f, 0x45,
+	0x76, 0xd2, 0x76, 0x39, 0x37, 0xbd, 0xeb, 0x5f, 0x63, 0xc3, 0x9e, 0xcc, 0x6c, 0x5c, 0x00, 0x2b,
+	0x5f, 0xe6, 0x4e, 0x51, 0xfd, 0x77, 0x0a, 0x2c, 0xe7, 0xf1, 0xdf, 0xf1, 0xbb, 0xb4, 0x93, 0x15,
+	0x65, 0xfc, 0x05, 0x26, 0xe7, 0x54, 0xdb, 0x8d, 0x58, 0xe3, 0x6f, 0x25, 0x78, 0xff, 0x7a, 0x92,
+	0xf4, 0x01, 0x1b, 0x40, 0x39, 0xd6, 0x1a, 0x69, 0x8a, 0x08, 0xd8, 0xc7, 0xc5, 0x80, 0x5d, 0xcf,
+	0xbf, 0x97, 0x6f, 0xe8, 0xa9, 0xa4, 0xfa, 0x5f, 0x15, 0xa8, 0x5e, 0xf7, 0x0d, 0x42, 0xb9, 0xfc,
+	0x14, 0x6e, 0x43, 0xd5, 0x9f, 0x8c, 0x70, 0x76, 0x47, 0xc5, 0x5b, 0xe7, 0x4f, 0x46, 0x9d, 0x2b,
+	0xde, 0xad, 0xb9, 0xb7, 0xf6, 0x91, 0xe2, 0xe3, 0xec, 0xe3, 0x09, 0x97, 0xf1, 0x8c, 0x32, 0x9e,
+	0x01, 0xee, 0xe6, 0x0d, 0xa5, 0xd9, 0xf8, 0xfd, 0x54, 0x75, 0xe7, 0x58, 0xd3, 0x08, 0xdf, 0x50,
+	0xdd, 0x07, 0xd3, 0x7d, 0xe9, 0xf1, 0xe5, 0x82, 0x9d, 0x21, 0x76, 0xfa, 0xb3, 0x54, 0xfd, 0x57,
+	0x4a, 0xfa, 0x61, 0xe9, 0xbb, 0x2d, 0xcf, 0x3f, 0x2b, 0xf2, 0xc3, 0x4d, 0xce, 0x78, 0x69, 0x57,
+	0x93, 0x2f, 0xa7, 0xdf, 0xa6, 0x14, 0xa6, 0x33, 0x5d, 0x7a, 0x6b, 0x99, 0xfe, 0x46, 0x81, 0xc6,
+	0xd5, 0xb6, 0x59, 0x57, 0x4d, 0x6e, 0xff, 0x4f, 0x1b, 0xb9, 0x72, 0x99, 0x53, 0x2c, 0xb6, 0xf9,
+	0x38, 0xf8, 0xd5, 0x51, 0x66, 0x67, 0xe3, 0xef, 0xa5, 0x62, 0x88, 0xa5, 0xa0, 0xc8, 0xf0, 0xc9,
+	0xb1, 0x47, 0x1d, 0xf4, 0x18, 0x10, 0x15, 0x7f, 0x31, 0xf1, 0x3c, 0x1c, 0x4a, 0xa4, 0x70, 0xa2,
+	0x6c, 0xa9, 0x12, 0xa3, 0x7b, 0x5e, 0xcc, 0x84, 0x0e, 0x61, 0x55, 0xc2, 0x9c, 0x94, 0x54, 0x16,
+	0xe2, 0x07, 0x97, 0x0b, 0xb1, 0xa8, 0x68, 0x4f, 0x1e, 0xad, 0x5a, 0xcc, 0x1f, 0x63, 0xeb, 0x7f,
+	0x52, 0xf8, 0xd8, 0xc4, 0xff, 0x0b, 0x67, 0x5c, 0x1f, 0x7b, 0x84, 0xb9, 0x6c, 0xe2, 0xc8, 0x48,
+	0x96, 0xac, 0xea, 0xc8, 0xf5, 0xdb, 0x31, 0x48, 0x90, 0x90, 0xf3, 0x8c, 0xa4, 0x14, 0x93, 0x90,
+	0xf3, 0x94, 0xe4, 0x11, 0xac, 0x08, 0x29, 0x81, 0x3f, 0x94, 0x34, 0x73, 0x82, 0x86, 0x8b, 0x6e,
+	0x27, 0x30, 0x41, 0xc4, 0xe5, 0xa4, 0x44, 0xf3, 0x31, 0x11, 0x39, 0x4f, 0x89, 0x9e, 0x2e, 0x3c,
+	0x57, 0xbe, 0x52, 0xde, 0xf9, 0x6f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x8c, 0x09, 0x82, 0x5c, 0xb6,
 	0x1b, 0x00, 0x00,
 }

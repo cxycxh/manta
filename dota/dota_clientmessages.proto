@@ -3,6 +3,7 @@ syntax = "proto2";
 package dota;
 
 import "dota_commonmessages.proto";
+import "dota_shared_enums.proto";
 
 option optimize_for = SPEED;
 option cc_generic_services = false;
@@ -80,6 +81,12 @@ enum EDotaClientMessages {
 	DOTA_CM_GuideSelectOption = 373;
 	DOTA_CM_GuideSelected = 374;
 	DOTA_CM_DamageReport = 375;
+	DOTA_CM_SalutePlayer = 376;
+	DOTA_CM_SprayWheel = 377;
+	DOTA_CM_TipAlert = 378;
+	DOTA_CM_EmptyTeleportAlert = 379;
+	DOTA_CM_RadarAlert = 380;
+	DOTA_CM_TalentTreeAlert = 381;
 }
 
 message CDOTAClientMsg_MapPing {
@@ -92,6 +99,10 @@ message CDOTAClientMsg_ItemAlert {
 
 message CDOTAClientMsg_EnemyItemAlert {
 	optional uint32 item_entindex = 1;
+	optional int32 rune_type = 2 [default = -1];
+	optional int32 item_level = 3 [default = -1];
+	optional int32 primary_charges = 4 [default = -1];
+	optional int32 secondary_charges = 5 [default = -1];
 }
 
 message CDOTAClientMsg_ModifierAlert {
@@ -106,9 +117,14 @@ message CDOTAClientMsg_ClickedBuff {
 
 message CDOTAClientMsg_HPManaAlert {
 	optional uint32 target_entindex = 1;
+	optional bool show_raw_values = 2;
 }
 
 message CDOTAClientMsg_GlyphAlert {
+	optional bool negative = 1;
+}
+
+message CDOTAClientMsg_RadarAlert {
 	optional bool negative = 1;
 }
 
@@ -184,6 +200,7 @@ message CDOTAClientMsg_RequestGraphUpdate {
 message CDOTAClientMsg_ChatWheel {
 	optional uint32 chat_message_id = 1;
 	optional uint32 param_hero_id = 2;
+	optional uint32 emoticon_id = 3;
 }
 
 message CDOTAClientMsg_SendStatPopup {
@@ -223,8 +240,9 @@ message CDOTAClientMsg_BuyBackStateAlert {
 
 message CDOTAClientMsg_QuickBuyAlert {
 	optional int32 item_ability_id = 1;
-	optional int32 gold_required = 2;
+	optional int32 gold_cost = 2;
 	optional int32 item_cooldown_seconds = 3;
+	optional bool show_buyback = 4;
 }
 
 message CDOTAClientMsg_PlayerShowCase {
@@ -281,7 +299,7 @@ message CDOTAClientMsg_ChallengeSelect {
 }
 
 message CDOTAClientMsg_ChallengeReroll {
-	optional uint32 event_id = 1;
+	optional EEvent event_id = 1 [default = EVENT_ID_NONE];
 	optional uint32 slot_id = 2;
 	optional uint32 sequence_id = 3;
 	optional uint32 hero_id = 4;
@@ -310,6 +328,13 @@ message CDOTAClientMsg_ExecuteOrders {
 message CDOTAClientMsg_XPAlert {
 	optional uint32 target_entindex = 1;
 	optional uint32 damage_taken = 2;
+}
+
+message CDOTAClientMsg_TalentTreeAlert {
+	optional uint32 target_entindex = 1;
+	optional int32 ability_id = 2;
+	optional int32 slot = 3;
+	optional bool learned = 4;
 }
 
 message CDOTAClientMsg_KillcamDamageTaken {
@@ -394,6 +419,7 @@ message CDOTAClientMsg_AbilityDraftRequestAbility {
 
 message CDOTAClientMsg_GuideSelectOption {
 	optional uint32 option = 1;
+	optional bool force_recalculate = 2;
 }
 
 message CDOTAClientMsg_GuideSelected {
@@ -406,5 +432,18 @@ message CDOTAClientMsg_DamageReport {
 	optional uint32 source_hero_id = 2;
 	optional int32 damage_amount = 3;
 	optional bool broadcast = 4;
+}
+
+message CDOTAClientMsg_SalutePlayer {
+	optional int32 target_player_id = 1;
+	optional int32 event_id = 2;
+}
+
+message CDOTAClientMsg_TipAlert {
+	optional string tip_text = 1;
+}
+
+message CDOTAClientMsg_EmptyTeleportAlert {
+	optional int32 target_entindex = 1;
 }
 
